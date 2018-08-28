@@ -297,25 +297,6 @@
         }
       ],
       "id": 6
-    },
-    {
-      "endereco": "Rua doutor Jose pereira gomes",
-      "numero": 604,
-      "complemento": "dsadsadsadsa",
-      "formaPagamento": "dinheiro",
-      "itens": [
-        {
-          "id": 4,
-          "img": {
-            "url": "/assets/ofertas/4/img1.jpg"
-          },
-          "titulo": "Estância das águas",
-          "descricao_oferta": "Diversão garantida com piscinas, trilhas e muito mais.",
-          "valor": 31.9,
-          "quantidade": 3
-        }
-      ],
-      "id": 7
     }
   ]
 }
