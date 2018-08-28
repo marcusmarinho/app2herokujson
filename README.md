@@ -10,7 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## In command Prompt navigate where the banco-de-dados.json are cd yourpath\ and execute json-server --watch banco-de-dados.json
 
-## My heroku deploy
+## My heroku deploy :D
 
 Access link: https://app2herokuangular.herokuapp.com/
 
