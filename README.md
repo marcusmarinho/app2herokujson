@@ -12,7 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## My heroku deploy :D
 
-Access link: https://app2herokuangular.herokuapp.com/
+Access link: https://app2herokujsonserver.herokuapp.com/
 
 ## With ng serve command
 
