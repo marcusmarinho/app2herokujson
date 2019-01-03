@@ -34,6 +34,7 @@ import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra
 
 import { CarrinhoService } from './carrinho.service'
 
+
 @NgModule({
     declarations: [
     AppComponent,

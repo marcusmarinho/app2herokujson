@@ -6,6 +6,7 @@ import { Observable } from '../../node_modules/rxjs/Observable';
 import './util/rxjs-extensions'
 
 
+
 @Injectable()
 export class OfertasService {
 
@@ -15,55 +16,59 @@ export class OfertasService {
     Da forma abaixo caso a aplicação seja complexa e acessadas por diversos serviços, para facilitar
     A manutenção podemos fazer da seguinte forma*/
 
-    public getOfertas(): Promise<Oferta[]> {
+    public getOfertas(): Observable<Oferta[]> {
         /*Efetuar uma requisição Http
           retornar uma promise Ofertas[]
           return  this.http.get('http://localhost:3000/ofertas?categoria=diversao')
           return this.http.get(`${this.url_api}?destaque = true`)*/
-        return this.http.get(`${URL_API}/ofertas`)
-            .toPromise()
-            .then((resposta: Response) => resposta.json())
+          return this.http.get(`${URL_API}/ofertas`)
+            .map((resposta: Response) => resposta.json())
+            .catch((e: any) => Observable.throw(this.errorHandler(e)));
+                  
     }
 
-    public getOfertasPorCategoria(categoria: string): Promise<Oferta[]> {
+    public getOfertasPorCategoria(categoria: string): Observable<Oferta[]> {
         /*  Requisição http onde sera passado como parametro de pesquisa a 'categoria'
            dessa forma sera possivel alinhar o template 
            return this.http.get(`${this.url_api}?categoria=${categoria}`)*/
-        return this.http.get(`${URL_API}/ofertas?categoria=${categoria}`)
-            .toPromise()
-            .then((resposta: Response) => resposta.json())
+        return this.http.get(`${URL_API}/ofertas?categoria=${categoria}`)     
+            .map((resposta: Response) => resposta.json())
+            .catch((e: any) => Observable.throw(this.errorHandler(e)));
     }
 
-    public getOfertasPorId(id: number): Promise<Oferta> {
+    public getOfertasPorId(id: number): Observable<Oferta> {
         //return this.http.get(`${this.url_api}?id=${id}`)
         return this.http.get(`${URL_API}/ofertas?id=${id}`)
-            .toPromise()
-            .then((resposta: Response) => {
+            
+            .map((resposta: Response) => {
                 //O metodo .shift() extrai o primeiro indice do array
                 //Mesmo sendo o retorno do tipo array atraves do shift é possivel recuperar apenas o objeto.      
                 return resposta.json().shift()
                 //return reposta.json()[0]
             })
+            .catch((e: any) => Observable.throw(this.errorHandler(e)));
     }
 
-    public getComoUsarOfertaPorId(id: number): Promise<string> {
+    public getComoUsarOfertaPorId(id: number): Observable<string> {
 
         return this.http.get(`${URL_API}/como-usar?id=${id}`)
-            .toPromise()
-            .then((resposta: Response) => {
+            .map((resposta: Response) => {
                 //console.log(resposta.json().shift().descricao)
                 return resposta.json()[0].descricao
             })
+            .catch((e: any) => Observable.throw(this.errorHandler(e)));
     }
 
-    public getOndeFicaOfertaPorId(id: number): Promise<string> {
+    public getOndeFicaOfertaPorId(id: number): Observable<string> {
 
         return this.http.get(`${URL_API}/onde-fica?id=${id}`)
-            .toPromise()
-            .then((resposta: Response) => {
+          
+            .map((resposta: Response) => {
                 //console.log(resposta.json().shift().descricao)
                 return resposta.json()[0].descricao
+                
             })
+            .catch((e: any) => Observable.throw(this.errorHandler(e)));
     }
 
     public pesquisaOfertas(termo: string): Observable<Oferta[]> {
@@ -76,5 +81,10 @@ export class OfertasService {
             //quantidade de tentativas que o servidor ira tentar se reconectar com a aplicação
             .retry(10)
             .map((resposta: Response) => resposta.json())
+            .catch((e: any) => Observable.throw(this.errorHandler(e)));
     }
+
+    errorHandler(error: any): void {
+        console.log(error)
+      }
 }

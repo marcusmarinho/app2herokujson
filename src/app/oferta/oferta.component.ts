@@ -24,11 +24,13 @@ export class OfertaComponent implements OnInit {
 
   // Recupera rota ja estanciando com This para objeto
   constructor(private route: ActivatedRoute,
-    private ofertasService: OfertasService,
-    private carrinhoService: CarrinhoService
+              private ofertasService: OfertasService,
+              private carrinhoService: CarrinhoService
   ) { }
 
   ngOnInit() {
+
+
     /*
     Utilizando o atributo route podemos fazer a chamada para o metodo snapshot passando consigo o
     parametro 'params', params é um array pré estanciado onde devemos colocar o atributo que queremos
@@ -45,14 +47,18 @@ export class OfertaComponent implements OnInit {
     */
     this.route.params.subscribe((parametros: Params) => {
       this.ofertasService.getOfertasPorId(parametros.id)
-        .then((oferta: Oferta) => {
+        .subscribe((oferta: Oferta) => {
           this.oferta = oferta
         })
     })
   }
+
   public adicionarItemCarrinho(oferta: Oferta): void {
+    
     this.carrinhoService.incluirItem(this.oferta)
     console.log('exibir itens' ,this.carrinhoService.exibirItens())
+    
   }
 
 }
+

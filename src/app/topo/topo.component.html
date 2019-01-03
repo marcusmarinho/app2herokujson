@@ -16,20 +16,22 @@
              (keyup)="pesquisa($event)"
              />
           -->
-          <input type="text" class="form-control" placeholder="Pesquise por Ofertas.." #termoDaPesquisa (keyup)="pesquisa(termoDaPesquisa.value)"
-          />
+          <input type="text" class="form-control" placeholder="Pesquise por Ofertas.." #termoDaPesquisa (keyup)="pesquisa(termoDaPesquisa.value)" />
           <ul class="list-group" style="position: absolute; z-index: 999">
             <!--| async efetua o subscribe no observable oferta-->
             <li class="list-group-item" *ngFor="let oferta of ofertas | async">
               <a [routerLink]="['/oferta', oferta.id]" (click)="limpaPesquisa()">
-                {{ oferta.titulo | descricaoReduzida: 15:0}}
+                {{ oferta.titulo | descricaoReduzida: 15:0 }}
               </a>
             </li>
           </ul>
         </div>
-        <div class="col-md-2" id="carrinho">
+        <div class="col-md-2" id="carrinho"  >
           <a routerLink="/ordem-compra">
-            <img src="/assets/carrinho.png" />
+            <span class="badge" >
+              
+            </span>  
+              <img src="/assets/carrinho.png" />
           </a>
         </div>
       </div>

@@ -18,11 +18,8 @@ export class DiversaoComponent implements OnInit {
     //o componente recupera os dados da requisição http para API REST(banco-de-dados.json)
     //dessa forma conseguimos fazer o data binding e alinhar o template(que em outro momento estava estatico)
     this.ofertasService.getOfertasPorCategoria('diversao')
-      .then(( ofertas: Oferta[]) => {
+      .subscribe(( ofertas: Oferta[]) => {
         this.ofertas = ofertas
-      })
-      .catch(( param: any) =>{
-        console.log(param)
       })
     }
 }

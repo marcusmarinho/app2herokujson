@@ -32,7 +32,6 @@ export class OrdemCompraComponent implements OnInit {
 
   ngOnInit() {
     this.itensCarrinho = this.carrinhoService.exibirItens()
-    console.log(this.itensCarrinho)
   }
 
   public confirmarCompra(): void {
@@ -48,7 +47,6 @@ export class OrdemCompraComponent implements OnInit {
         alert('Você não selecionou nenhum item')
       } else {
 
-        console.log('Formulário está Válido')
         let pedido: Pedido = new Pedido(
           this.formulario.value.endereco,
           this.formulario.value.numero,
@@ -57,13 +55,10 @@ export class OrdemCompraComponent implements OnInit {
           //passa para nossa api rest os itens comprados
           this.carrinhoService.exibirItens()
         )
-
-        console.log(pedido)
         
         this.ordemCompraService.efetivarCompra(pedido)
           .subscribe((idPedido: number) => {
             this.idPedidoCompra = idPedido
-            console.log(this.idPedidoCompra)
           })      
         
       }

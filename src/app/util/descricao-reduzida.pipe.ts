@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core'
 })
 
 export class DescricaoReduzida implements PipeTransform {
-    transform(texto: string, terminaEm: number, iniciaEm): string {
+    transform(texto: string, terminaEm: number, iniciaEm: number): string {
         if (texto.length > 15){
             return texto.substr(iniciaEm, terminaEm) + "..."
         }

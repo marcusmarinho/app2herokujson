@@ -18,11 +18,9 @@ export class RestaurantesComponent implements OnInit {
     //o componente recupera os dados da requisição http para API REST(banco-de-dados.json)
     //dessa forma conseguimos fazer o data binding e alinhar o template
     this.ofertasService.getOfertasPorCategoria('restaurante')
-      .then((ofertas: Oferta[]) => {
+      .subscribe((ofertas: Oferta[]) => {
         this.ofertas = ofertas
       })
-      .catch((param: any) => {
-        console.log(param)
-      })
+      
   }
 }

@@ -1,14 +1,20 @@
 import { ItemCarrinho } from "./shared/item-carrinho.model";
 import { Oferta } from './shared/oferta.model'
+import { Injectable } from '@angular/core'
 
+
+@Injectable()
 class CarrinhoService {
     public itens: ItemCarrinho[] = []
+
+    public itemCarrinhoEncontrado: any
 
     public exibirItens(): ItemCarrinho[] {
         return this.itens
     }
 
     public incluirItem(oferta: Oferta): void {
+        
         let itemCarrinho: ItemCarrinho = new ItemCarrinho(
             oferta.id,
             oferta.imagens[0],
@@ -17,18 +23,19 @@ class CarrinhoService {
             oferta.valor,
             1
         )
+        
         //Verifica se item add no carrinho é repetido caso sim aumenta somente a quantidade
-        let itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id)
+         this.itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id)
 
-        if (itemCarrinhoEncontrado) {
-            itemCarrinhoEncontrado.quantidade += 1
-
+        if (this.itemCarrinhoEncontrado) {
+            this.itemCarrinhoEncontrado.quantidade += 1
+            
         } else {
             //metodo push permite pegar alguma informação e add no array
             this.itens.push(itemCarrinho)
         }
     }
-
+    
     public totalCarrinhoCompras(): number {
 
         let total: number = 0
@@ -38,7 +45,7 @@ class CarrinhoService {
 
         return total
     }
-   
+
     public alteraQuantidade(itemCarrinho: ItemCarrinho, soma?: boolean): void {
         let itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id)
 
@@ -63,7 +70,6 @@ class CarrinhoService {
                 }
             }
         }
-
     }
 }
 export { CarrinhoService }
