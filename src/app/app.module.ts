@@ -7,7 +7,9 @@ import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
 registerLocaleData(ptBr)
 
+
 import { HttpModule } from '@angular/http' 
+
 import { RouterModule} from '@angular/router'
 
 //import { FormsModule } from '@angular/forms'
@@ -32,7 +34,8 @@ import { DescricaoReduzida } from './util/descricao-reduzida.pipe'
 import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component'
 import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra-sucesso.component'
 
-import { CarrinhoService } from './carrinho.service'
+import { CarrinhoService } from './carrinho.service';
+import { PesquisaPedidoComponent } from './pesquisa-pedido/pesquisa-pedido.component'
 
 
 @NgModule({
@@ -48,14 +51,14 @@ import { CarrinhoService } from './carrinho.service'
     OndeFicaComponent,
     DescricaoReduzida,
     OrdemCompraComponent,
-    OrdemCompraSucessoComponent
+    OrdemCompraSucessoComponent,
+    PesquisaPedidoComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
     ReactiveFormsModule
-    //FormsModule
   ],
   providers: [CarrinhoService,  {  provide: LOCALE_ID, useValue: 'pt'} ],
   bootstrap: [AppComponent]

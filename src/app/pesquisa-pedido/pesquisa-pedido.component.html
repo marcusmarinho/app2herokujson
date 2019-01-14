@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="pesquisa-compra">
+    <form [formGroup]="consultaFormulario" novalidate (ngSubmit)=efetuaConsulta()>
+
+      <h5>Informe o ID do Pedido</h5>
+      <hr />
+
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <input type="number" 
+                 class="form-control" 
+                 placeholder="Informe o numero do Pedido"
+                 formControlName="numeroDoPedido"
+          >
+          <small *ngIf="consultaFormulario.get('numeroDoPedido').valid && consultaFormulario.get('numeroDoPedido').touched" class="form-text text-success">Ok</small>
+          <small *ngIf="consultaFormulario.get('numeroDoPedido').invalid && consultaFormulario.get('numeroDoPedido').touched" class="form-text text-danger">Número do pedido Invalido</small>
+        </div>
+      </div>
+
+      <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0" *ngFor="let item of pedido.itens">
+        <div class="form-group col-sm-1">
+          <img [src]="item.img.url" class="img-fluid">
+        </div>
+
+        <div class="form-group col-sm-6">
+          {{ item.titulo }}
+          <br />
+          {{ item.descricao_oferta }}
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <br />
+            Quantidade: {{ item.quantidade }}
+          </div>
+        </div>
+
+        <div class="form-group col-sm-3 d-flex justify-content-end">
+          <br />
+          {{ item.quantidade * item.valor | currency: 'BRL': code }}
+        </div>
+      </div>
+
+      <div class="form-group col d-flex justify-content-end" *ngIf="controle ">
+        <h4> {{ totalPedido() | currency: 'BRL': code }}</h4>
+      </div>
+
+      <div class="form-row">
+        <button type="submit" class="btn btn-primary btn-lg">
+          Consultar
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

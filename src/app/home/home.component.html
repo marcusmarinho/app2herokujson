@@ -14,7 +14,7 @@
           <h4 class="card-title">{{ oferta.titulo }}</h4>
           <p class="card-text">{{ oferta.descricao_oferta | descricaoReduzida: 40}}</p>
           
-          <p class="preco">{{ oferta.valor | currency: 'BRL':true }}</p>
+          <p class="preco">{{ oferta.valor | currency: 'BRL':code }}</p>
           
 <!-- Ao clicar no botao VerOferta, atraves da assinatura <router-outlet> estanciado em appcomponent
      Iremos passar o path e o parametro de pesquisa para podermos enchergar essa oferta.

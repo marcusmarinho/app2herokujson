@@ -20,12 +20,11 @@ export class OrdemCompraService{
       MIME type of the request body. Or perhaps the server requires an authorization token.
       The HeroesService defines such headers in an httpOptions object that will be passed to every 
       HttpClient save method
-    */
-        
+    */   
         return this.http.post(
             `${URL_API}/pedidos`,
-            JSON.stringify(pedido),
-            new RequestOptions({ headers: headers})
+            JSON.stringify(pedido),//converte o body(que é o pedido em questão que na realidade é um objeto literal...converte para string)
+            new RequestOptions({ headers: headers})//cabeçalho da requisição, atraves disso a API rest consegue identificar que a requisição post que está sendo feita é para API propriamente dita
         )
         .map(( resposta: Response) => resposta.json().id)
     }

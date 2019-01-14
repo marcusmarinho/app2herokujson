@@ -1,11 +1,11 @@
 import { Oferta } from './shared/oferta.model'
-import { Http, Response } from '@angular/http'
+import { Pedido } from './shared/pedido.model'
+
 import { Injectable } from '@angular/core'
 import { URL_API } from './app.api'
-import { Observable } from '../../node_modules/rxjs/Observable';
+import { Observable } from 'rxjs'
 import './util/rxjs-extensions'
-
-
+import { Http, Response } from '@angular/http'
 
 @Injectable()
 export class OfertasService {
@@ -16,6 +16,7 @@ export class OfertasService {
     Da forma abaixo caso a aplicação seja complexa e acessadas por diversos serviços, para facilitar
     A manutenção podemos fazer da seguinte forma*/
 
+
     public getOfertas(): Observable<Oferta[]> {
         /*Efetuar uma requisição Http
           retornar uma promise Ofertas[]
@@ -23,7 +24,6 @@ export class OfertasService {
           return this.http.get(`${this.url_api}?destaque = true`)*/
           return this.http.get(`${URL_API}/ofertas`)
             .map((resposta: Response) => resposta.json())
-            .catch((e: any) => Observable.throw(this.errorHandler(e)));
                   
     }
 
@@ -33,7 +33,7 @@ export class OfertasService {
            return this.http.get(`${this.url_api}?categoria=${categoria}`)*/
         return this.http.get(`${URL_API}/ofertas?categoria=${categoria}`)     
             .map((resposta: Response) => resposta.json())
-            .catch((e: any) => Observable.throw(this.errorHandler(e)));
+    
     }
 
     public getOfertasPorId(id: number): Observable<Oferta> {
@@ -46,7 +46,7 @@ export class OfertasService {
                 return resposta.json().shift()
                 //return reposta.json()[0]
             })
-            .catch((e: any) => Observable.throw(this.errorHandler(e)));
+   
     }
 
     public getComoUsarOfertaPorId(id: number): Observable<string> {
@@ -56,7 +56,7 @@ export class OfertasService {
                 //console.log(resposta.json().shift().descricao)
                 return resposta.json()[0].descricao
             })
-            .catch((e: any) => Observable.throw(this.errorHandler(e)));
+    
     }
 
     public getOndeFicaOfertaPorId(id: number): Observable<string> {
@@ -68,7 +68,7 @@ export class OfertasService {
                 return resposta.json()[0].descricao
                 
             })
-            .catch((e: any) => Observable.throw(this.errorHandler(e)));
+ 
     }
 
     public pesquisaOfertas(termo: string): Observable<Oferta[]> {
@@ -81,10 +81,17 @@ export class OfertasService {
             //quantidade de tentativas que o servidor ira tentar se reconectar com a aplicação
             .retry(10)
             .map((resposta: Response) => resposta.json())
-            .catch((e: any) => Observable.throw(this.errorHandler(e)));
     }
 
-    errorHandler(error: any): void {
-        console.log(error)
-      }
+    public consultaPedido(idDoPedido: number): Observable<any> {
+        return this.http.get(`${URL_API}/pedidos?id=${idDoPedido}`)
+            .map((resposta: Response) =>{
+                if(resposta === undefined){
+                    throw new Error('This request has failed ' + resposta.status);
+                }
+                else{
+                    return resposta.json().shift()
+                } 
+            })
+    }
 }

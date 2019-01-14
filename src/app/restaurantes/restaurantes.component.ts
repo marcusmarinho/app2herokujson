@@ -20,7 +20,6 @@ export class RestaurantesComponent implements OnInit {
     this.ofertasService.getOfertasPorCategoria('restaurante')
       .subscribe((ofertas: Oferta[]) => {
         this.ofertas = ofertas
-      })
-      
+      })     
   }
 }

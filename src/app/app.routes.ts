@@ -7,11 +7,13 @@ import { OfertaComponent } from './oferta/oferta.component'
 import { ComoUsarComponent } from './oferta/como-usar/como-usar.component'
 import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component'
 import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component'
+import { PesquisaPedidoComponent } from './pesquisa-pedido/pesquisa-pedido.component'
 
 export  const ROUTES: Routes = [
     { path: '', component: HomeComponent },
     { path: 'restaurantes', component: RestaurantesComponent },
     { path: 'diversao', component: DiversaoComponent },
+    { path: 'pesquisapedido', component: PesquisaPedidoComponent },
     //Neste caso, se não tivermos o 'id' do objeto ao inves de mandar uma pagina de ofertas não encontrada
     //Iremos apresentar o home component que recupera todas as ofertas disponiveis
     { path: 'oferta', component: HomeComponent },
