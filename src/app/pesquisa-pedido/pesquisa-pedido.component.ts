@@ -32,11 +32,6 @@ export class PesquisaPedidoComponent implements OnInit {
   constructor(private ofertasService: OfertasService) { }
 
   ngOnInit() {
-
-    console.log(`${this.frase} Melissona 
-                blaus
-                ola`)
-
     this.controle = true
     this.controleValor = false
     this.pedido = new Pedido("", "", "", "", [])

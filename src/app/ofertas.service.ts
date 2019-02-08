@@ -6,7 +6,7 @@ import { URL_API } from './app.api'
 import { Observable, throwError } from 'rxjs'
 import './util/rxjs-extensions'
 import { Http, Response } from '@angular/http'
-import { CachedResourceLoader } from '@angular/platform-browser-dynamic/src/resource_loader/resource_loader_cache';
+
 
 @Injectable()
 export class OfertasService {
@@ -69,7 +69,6 @@ export class OfertasService {
                 return resposta.json()[0].descricao
 
             })
-
     }
 
     public pesquisaOfertas(termo: string): Observable<Oferta[]> {
@@ -87,7 +86,7 @@ export class OfertasService {
     public consultaPedido(idDoPedido: number): Observable<any> {
         return this.http.get(`${URL_API}/pedidos?id=${idDoPedido}`)
             .map((resposta: Response) => {
-                return resposta.json().shift()
+                return resposta.json().shift()          
             })
     }
 }
