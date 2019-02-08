@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 //import snapshot/subscribe route
 import { ActivatedRoute, Params } from '@angular/router'
 import { OfertasService } from '../ofertas.service'
@@ -16,6 +16,8 @@ export class OfertaComponent implements OnInit {
   //Modelo Oferta para ser resolvida
   public oferta: Oferta
 
+  @Output() setValue = new EventEmitter<number>();
+
   /*Variaveis para teste Unsubscribe
   Serve de referencia para os subscribes declarados
   private tempoObservableSubscription: Subscription
@@ -25,7 +27,8 @@ export class OfertaComponent implements OnInit {
   // Recupera rota ja estanciando com This para objeto
   constructor(private route: ActivatedRoute,
               private ofertasService: OfertasService,
-              private carrinhoService: CarrinhoService
+              private carrinhoService: CarrinhoService,
+              
   ) { }
 
   ngOnInit() {
@@ -57,6 +60,7 @@ export class OfertaComponent implements OnInit {
     
     this.carrinhoService.incluirItem(this.oferta)
     console.log('exibir itens' ,this.carrinhoService.exibirItens())
+    
     
   }
 

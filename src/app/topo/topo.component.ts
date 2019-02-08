@@ -15,8 +15,6 @@ import { CarrinhoService } from '../carrinho.service'
 
 export class TopoComponent implements OnInit {
 
-  
-
   constructor(private ofertasService: OfertasService) { }
 
   //Como estamos lidando com Observable precisamos converter o nosso objeto do type (Object)para Observable              

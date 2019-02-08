@@ -35,7 +35,8 @@ import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component'
 import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra-sucesso.component'
 
 import { CarrinhoService } from './carrinho.service';
-import { PesquisaPedidoComponent } from './pesquisa-pedido/pesquisa-pedido.component'
+import { PesquisaPedidoComponent } from './pesquisa-pedido/pesquisa-pedido.component';
+import { AlteraPedidoComponent } from './altera-pedido/altera-pedido.component'
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { PesquisaPedidoComponent } from './pesquisa-pedido/pesquisa-pedido.compo
     DescricaoReduzida,
     OrdemCompraComponent,
     OrdemCompraSucessoComponent,
-    PesquisaPedidoComponent
+    PesquisaPedidoComponent,
+    AlteraPedidoComponent
   ],
   imports: [
     BrowserModule,

@@ -3,9 +3,10 @@ import { Pedido } from './shared/pedido.model'
 
 import { Injectable } from '@angular/core'
 import { URL_API } from './app.api'
-import { Observable } from 'rxjs'
+import { Observable, throwError } from 'rxjs'
 import './util/rxjs-extensions'
 import { Http, Response } from '@angular/http'
+import { CachedResourceLoader } from '@angular/platform-browser-dynamic/src/resource_loader/resource_loader_cache';
 
 @Injectable()
 export class OfertasService {
@@ -22,31 +23,31 @@ export class OfertasService {
           retornar uma promise Ofertas[]
           return  this.http.get('http://localhost:3000/ofertas?categoria=diversao')
           return this.http.get(`${this.url_api}?destaque = true`)*/
-          return this.http.get(`${URL_API}/ofertas`)
+        return this.http.get(`${URL_API}/ofertas`)
             .map((resposta: Response) => resposta.json())
-                  
+
     }
 
     public getOfertasPorCategoria(categoria: string): Observable<Oferta[]> {
         /*  Requisição http onde sera passado como parametro de pesquisa a 'categoria'
            dessa forma sera possivel alinhar o template 
            return this.http.get(`${this.url_api}?categoria=${categoria}`)*/
-        return this.http.get(`${URL_API}/ofertas?categoria=${categoria}`)     
+        return this.http.get(`${URL_API}/ofertas?categoria=${categoria}`)
             .map((resposta: Response) => resposta.json())
-    
+
     }
 
     public getOfertasPorId(id: number): Observable<Oferta> {
         //return this.http.get(`${this.url_api}?id=${id}`)
         return this.http.get(`${URL_API}/ofertas?id=${id}`)
-            
+
             .map((resposta: Response) => {
                 //O metodo .shift() extrai o primeiro indice do array
                 //Mesmo sendo o retorno do tipo array atraves do shift é possivel recuperar apenas o objeto.      
                 return resposta.json().shift()
                 //return reposta.json()[0]
             })
-   
+
     }
 
     public getComoUsarOfertaPorId(id: number): Observable<string> {
@@ -56,19 +57,19 @@ export class OfertasService {
                 //console.log(resposta.json().shift().descricao)
                 return resposta.json()[0].descricao
             })
-    
+
     }
 
     public getOndeFicaOfertaPorId(id: number): Observable<string> {
 
         return this.http.get(`${URL_API}/onde-fica?id=${id}`)
-          
+
             .map((resposta: Response) => {
                 //console.log(resposta.json().shift().descricao)
                 return resposta.json()[0].descricao
-                
+
             })
- 
+
     }
 
     public pesquisaOfertas(termo: string): Observable<Oferta[]> {
@@ -85,13 +86,8 @@ export class OfertasService {
 
     public consultaPedido(idDoPedido: number): Observable<any> {
         return this.http.get(`${URL_API}/pedidos?id=${idDoPedido}`)
-            .map((resposta: Response) =>{
-                if(resposta === undefined){
-                    throw new Error('This request has failed ' + resposta.status);
-                }
-                else{
-                    return resposta.json().shift()
-                } 
+            .map((resposta: Response) => {
+                return resposta.json().shift()
             })
     }
 }
