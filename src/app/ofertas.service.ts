@@ -1,6 +1,4 @@
 import { Oferta } from './shared/oferta.model'
-import { Pedido } from './shared/pedido.model'
-
 import { Injectable } from '@angular/core'
 import { URL_API } from './app.api'
 import { Observable, throwError } from 'rxjs'

@@ -25,8 +25,6 @@ export class PesquisaPedidoComponent implements OnInit {
 
   public pedido: Pedido
 
-  frase = 'ola'
-
   public msgErro: string = "Numero do Pedido não indentificado"
 
   constructor(private ofertasService: OfertasService) { }
@@ -82,4 +80,3 @@ export class PesquisaPedidoComponent implements OnInit {
     })
   }
 }
-
