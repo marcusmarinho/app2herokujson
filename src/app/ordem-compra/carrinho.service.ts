@@ -1,10 +1,10 @@
-import { ItemCarrinho } from "./shared/item-carrinho.model";
-import { Oferta } from './shared/oferta.model'
+import { ItemCarrinho } from "../shared/item-carrinho.model";
+import { Oferta } from '../shared/oferta.model'
 import { Injectable } from '@angular/core'
-
 
 @Injectable()
 class CarrinhoService {
+    
     public itens: ItemCarrinho[] = []
 
     public itemCarrinhoEncontrado: any
@@ -14,7 +14,7 @@ class CarrinhoService {
     }
 
     public incluirItem(oferta: Oferta): void {
-        
+
         let itemCarrinho: ItemCarrinho = new ItemCarrinho(
             oferta.id,
             oferta.imagens[0],

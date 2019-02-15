@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core'
-import { OfertasService } from '../ofertas.service'
+import { OfertasService } from '../oferta/ofertas.service'
 import { Oferta } from '../shared/oferta.model'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
 import '../util/rxjs-extensions'
-import { CarrinhoService } from '../carrinho.service'
+
 
 @Component({
   selector: 'app-topo',
   templateUrl: './topo.component.html',
   styleUrls: ['./topo.component.css'],
-  providers: [OfertasService, CarrinhoService]
+  providers: [OfertasService]
 })
 
 export class TopoComponent implements OnInit {
@@ -28,8 +28,7 @@ export class TopoComponent implements OnInit {
 
   
   ngOnInit() {
-
-
+   
     this.ofertas = this.subjectPesquisa //retorno de Oferta[]
       .debounceTime(1000) //Dispara o funcao switchMap depois de um segundo
       .distinctUntilChanged()//Parametro de pesquisa seja identico ao anterior a aplicação na faz outra requisição

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 //Import ActivatedRoute para que seja feito a recuperacao da rota pai (id da oferta)
-import { ActivatedRoute } from '@angular/router'
-import { OfertasService} from '../../ofertas.service'
+import { ActivatedRoute, Params } from '@angular/router'
+import { OfertasService } from '../ofertas.service'
 
 @Component({
   selector: 'app-onde-fica',
@@ -11,17 +11,19 @@ import { OfertasService} from '../../ofertas.service'
 })
 export class OndeFicaComponent implements OnInit {
 
-  constructor(private route : ActivatedRoute,
-              private ofertasService: OfertasService) { }
+  constructor(private route: ActivatedRoute,
+    private ofertasService: OfertasService) { }
 
-  public ondeFica : string = ''            
+  public ondeFica: string = ''
 
   ngOnInit() {
 
-    this.ofertasService.getOndeFicaOfertaPorId(this.route.parent.snapshot.params['id'])
-      .subscribe(( resposta: any ) => {
-        this.ondeFica = resposta
-      })
+    this.route.parent.params.subscribe((parametros: Params) => {
+      this.ofertasService.getOndeFicaOfertaPorId(parametros.id)
+        .subscribe((descricao: string) => {
+          this.ondeFica = descricao
+        })
+    })
   }
 
 }

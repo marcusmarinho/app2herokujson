@@ -1,34 +1,39 @@
-<div class="container">
-  <div class="secao">
-    <h3 class="text-center">Destaques do dia!</h3>
-    <h5 class="text-center">Aproveite as super ofertas que separamos para você:</h5>
-  </div>
+<!doctype html>
+<html lang="en">
 
-  <hr />
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
 
-  <div class="row">
-    <div class="col-sm-4" *ngFor="let oferta of ofertas">
-      <div class="card" style="align-content: flex-start">
-        <img class="card-img-top" [src]="oferta.imagens[0].url">
-        <div class="card-block">
-          <h4 class="card-title">{{ oferta.titulo }}</h4>
-          <p class="card-text">{{ oferta.descricao_oferta | descricaoReduzida: 40}}</p>
-          
-          <p class="preco">{{ oferta.valor | currency: 'BRL':code }}</p>
-          
-<!-- Ao clicar no botao VerOferta, atraves da assinatura <router-outlet> estanciado em appcomponent
-     Iremos passar o path e o parametro de pesquisa para podermos enchergar essa oferta.
-     Nosso parametro é id da oferta, para isso usaremos a notacao de property binding
-     Para passar o path + parametro de pesquisa (id), usaremos um array
-                '/oferta' , oferta.id 
--->
-          <a [routerLink]="[ '/oferta', oferta.id ]" class="btn btn-outline-primary" >Ver oferta
-         </a>
+<body>
+  <div class="container">
+    <div class="secao">
+      <h3 class="text-center">Destaques do dia!</h3>
+      <h5 class="text-center">Aproveite as super ofertas que separamos para você:</h5>
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-sm-4" *ngFor="let oferta of ofertas">
+        <div class="card" style="align-content: flex-start">
+          <img class="card-img-top" [src]="oferta.imagens[0].url">
+          <div class="card-block">
+            <h4 class="card-title">{{ oferta.titulo }}</h4>
+            <p class="card-text">{{ oferta.descricao_oferta | descricaoReduzida: 40}}</p>
+
+            <p class="preco">{{ oferta.valor | currency: 'BRL':code }}</p>
+
+            <a [routerLink]="[ '/oferta', oferta.id ]" class="btn btn-outline-primary">Ver oferta
+            </a>
+          </div>
         </div>
+        <br>
       </div>
       <br>
     </div>
-    <br>
+    <hr />
   </div>
-  <hr />
-</div>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '../../../node_modules/@angular/forms';
 import { Pedido } from '../shared/pedido.model'
-import { OfertasService } from '../ofertas.service'
+import { OfertasService } from '../oferta/ofertas.service'
 
 @Component({
   selector: 'app-pesquisa-pedido',

@@ -1,9 +1,11 @@
-span {
-    color: #fff;
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #34495e;
+    color: white;
+    text-align: center;
 }
 
-.row {
-    background: #0057A6;
-    margin-top: 0px;
-    padding: 10px;
-}

@@ -1,63 +1,47 @@
-<div class="fixed-top">
-  <nav class="navbar navbar-light bg-faded">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <a href="#" class="navbar-brand">
-            <img src="/assets/logo.png" />
-          </a>
-        </div>
-        <div class="col-md-6">
-          <!--Representa de Pipe-->
-          <!--Capturar atraves do Evento o dado digitado no campo de pesquisa
-            <input type="text" class="form-control"
-             placeholder="Pesquise por Ofertas.."
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-             (keyup)="pesquisa($event)"
-             />
-          -->
-          <input type="text" class="form-control" placeholder="Pesquise por Ofertas.." #termoDaPesquisa (keyup)="pesquisa(termoDaPesquisa.value)" />
-          <ul class="list-group" style="position: absolute; z-index: 999">
-            <!--| async efetua o subscribe no observable oferta-->
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+</head>
+
+<body>
+
+  <div class="header">
+    <input type="checkbox" id="chk">
+    <label for="chk" class="show-menu-btn">
+      <i class="fas fa-ellipsis-h"></i>
+    </label>
+
+    <div class="search-area">
+        <input type="search" #termoDaPesquisa (keyup)="pesquisa(termoDaPesquisa.value)"/>
+        <ul class="list-group">
             <li class="list-group-item" *ngFor="let oferta of ofertas | async">
-              <a [routerLink]="['/oferta', oferta.id]" (click)="limpaPesquisa()">
-                {{ oferta.titulo | descricaoReduzida: 15:0 }}
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-2" id="carrinho"  >
-          <a routerLink="/ordem-compra">
-            <span class="badge" >
-              
-            </span>  
-              <img src="/assets/carrinho.png" />
-          </a>
-        </div>
-      </div>
+                <a [routerLink]="['/oferta', oferta.id]" (click)="limpaPesquisa()">
+              {{ oferta.titulo | descricaoReduzida: 15:0 }}
+            </a>
+          </li>
+        </ul>
+        <i class="fa fa-search"></i>
     </div>
-  </nav>
 
-  <div class="menu">
-    <div class="container">
-      <ul class="nav">
-        <li class="nav-item">
-          <!--routerLinkActive mantem o foco no path que está sendo utilizado neste caso restaurantes-->
-          <a class="nav-link active" routerLinkActive="active" routerLink="/restaurantes">Restaurantes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLinkActive="active" routerLink="/diversao">Diversão</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLinkActive="active" routerLink="/pesquisapedido">Consultar Pedido</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLinkActive="active" routerLink="/alterapedido">Alterar Pedido</a>
-        </li>
-      </ul>
-    </div>
+
+    <ul class="menu">
+      <a routerLinkActive="active" routerLink="">Home</a>
+      <a routerLinkActive="active" routerLink="/restaurantes">Restaurantes</a>
+      <a routerLinkActive="active" routerLink="/diversao">Diversão</a>
+      <a routerLinkActive="active" routerLink="/pesquisapedido">Consultar Pedido</a>
+      <a routerLinkActive="active" routerLink="/alterapedido">Alterar Pedido</a>
+      <a routerLinkActive="active" routerLink="/ordem-compra">Carrinho</a>
+      <label for="chk" class="hide-menu-btn">
+        <i class="fas fa-times"></i>
+      </label>
+    </ul>
   </div>
-</div>
-<div class="banner">
-  <img src="/assets/banners/img_1.jpg" />
-</div>
+
+</body>
+
+</html>
