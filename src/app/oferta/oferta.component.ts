@@ -4,8 +4,6 @@ import { ActivatedRoute, Params } from '@angular/router'
 //Import do modelo para que seja feito o databiding/interpolation 
 import { Oferta } from '../shared/oferta.model'
 
-
-
 import { CarrinhoService } from '../ordem-compra/carrinho.service'
 //Service
 import { OfertasService } from './ofertas.service'
@@ -31,6 +29,7 @@ export class OfertaComponent implements OnInit {
       this.ofertasService.getOfertasPorId(parametros.id)
         .subscribe((oferta: Oferta) => {
           this.oferta = oferta
+          console.log(this.oferta)
         })
     })
   }

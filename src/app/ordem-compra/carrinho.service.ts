@@ -11,6 +11,11 @@ class CarrinhoService {
 
     public exibirItens(): ItemCarrinho[] {
         return this.itens
+
+    }
+
+    public exibirDadosDaCompra(){
+        return 
     }
 
     public incluirItem(oferta: Oferta): void {

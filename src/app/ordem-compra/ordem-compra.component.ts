@@ -51,6 +51,7 @@ export class OrdemCompraComponent implements OnInit {
           this.formulario.value.formaPagamento,
           //passa para nossa api rest os itens comprados
           this.carrinhoService.exibirItens()
+          
         )
         
         this.ordemCompraService.efetivarCompra(pedido)

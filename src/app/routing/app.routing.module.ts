@@ -9,16 +9,18 @@ import { DiversaoComponent } from '../diversao/diversao.component'
 import { OrdemCompraComponent } from '../ordem-compra/ordem-compra.component'
 import { PesquisaPedidoComponent } from '../pesquisa-pedido/pesquisa-pedido.component'
 import { AlteraPedidoComponent } from '../altera-pedido/altera-pedido.component'
+import { OfertaComponent } from '../oferta/oferta.component';
 
 export  const ROUTES: Routes = [
-    { path: 'oferta', loadChildren: 'app/oferta/oferta.module#OfertaModule'},
 
     { path: '', component: HomeComponent },
+    { path: 'oferta', component: OfertaComponent},
+
     { path: 'restaurantes', component: RestaurantesComponent },
     { path: 'diversao', component: DiversaoComponent },
     { path: 'pesquisapedido', component: PesquisaPedidoComponent },
     { path: 'alterapedido', component: AlteraPedidoComponent },
-    { path: 'oferta', component: HomeComponent },
+  //  { path: 'oferta', component: HomeComponent },
     { path: 'ordem-compra', component: OrdemCompraComponent }
  ]
 

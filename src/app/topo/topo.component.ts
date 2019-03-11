@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core'
 import { OfertasService } from '../oferta/ofertas.service'
 import { Oferta } from '../shared/oferta.model'
-import { Observable } from 'rxjs/Observable'
-import { Subject } from 'rxjs/Subject'
-import '../util/rxjs-extensions'
-
+import { Observable ,  Subject, of } from 'rxjs'
+import "rxjs/add/operator/debounceTime";
+import "rxjs/add/operator/distinctUntilChanged"
+import "rxjs/add/operator/switchMap"
+import "rxjs/add/operator/catch"
+import "rxjs/add/observable/of"
 
 @Component({
   selector: 'app-topo',
@@ -18,15 +20,13 @@ export class TopoComponent implements OnInit {
   constructor(private ofertasService: OfertasService) { }
 
   //Como estamos lidando com Observable precisamos converter o nosso objeto do type (Object)para Observable              
-  public ofertas: Observable<Oferta[]>
+  public ofertas
   // Objeto para fazer o databiding das informações
   /*substituido pela pipe async
   public ofertas2: Oferta[]
   */
   //Recebe parametros e implementa alguma logica, neste caso este subject vai receber o parametro de pesquisa
   private subjectPesquisa: Subject<string> = new Subject<string>()
-
-  
   ngOnInit() {
    
     this.ofertas = this.subjectPesquisa //retorno de Oferta[]
@@ -39,7 +39,6 @@ export class TopoComponent implements OnInit {
         if (termo.trim() === '') {
           return Observable.of<Oferta[]>([])
         }
-
         return this.ofertasService.pesquisaOfertas(termo)
       })
       .catch((err: any) => {

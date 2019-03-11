@@ -7,9 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 </head>
-
 <body>
-
+  
   <div class="header">
     <input type="checkbox" id="chk">
     <label for="chk" class="show-menu-btn">
@@ -18,16 +17,17 @@
 
     <div class="search-area">
         <input type="search" #termoDaPesquisa (keyup)="pesquisa(termoDaPesquisa.value)"/>
-        <ul class="list-group">
-            <li class="list-group-item" *ngFor="let oferta of ofertas | async">
-                <a [routerLink]="['/oferta', oferta.id]" (click)="limpaPesquisa()">
-              {{ oferta.titulo | descricaoReduzida: 15:0 }}
-            </a>
-          </li>
+        <div class="list-group">
+          <ul>
+            <li style="z-index:999;" class="list-group-item" *ngFor="let oferta of ofertas | async">
+                <span [routerLink]="['/oferta', oferta.id]" (click)="limpaPesquisa()">
+                   {{ oferta.titulo | descricaoReduzida: 15:0 }}
+                </span>
+           </li>
         </ul>
+        </div>
         <i class="fa fa-search"></i>
     </div>
-
 
     <ul class="menu">
       <a routerLinkActive="active" routerLink="">Home</a>

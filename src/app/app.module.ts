@@ -27,7 +27,7 @@ import { PesquisaPedidoComponent } from './pesquisa-pedido/pesquisa-pedido.compo
 import { AlteraPedidoComponent } from './altera-pedido/altera-pedido.component'
 
 //Modules
-//import { OfertaModule } from './oferta/oferta.module';
+import { OfertaModule } from './oferta/oferta.module';
 import { AppRoutingModule } from './routing/app.routing.module';
 
 //PedidoModule
@@ -47,7 +47,7 @@ import { AppRoutingModule } from './routing/app.routing.module';
   ],
   imports: [
     AppRoutingModule,
- //   OfertaModule,
+    OfertaModule,
     BrowserModule,
     HttpModule,
     ReactiveFormsModule

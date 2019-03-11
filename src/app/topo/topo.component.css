@@ -8,7 +8,6 @@
     background: #34495e;
     padding: 0 20px;
     color: #fff;
-  
   }
   
   .menu{
@@ -16,25 +15,29 @@
     line-height: 100px;
   }
 
-  .menu a{
+  .menu a {
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
     padding: 0 10px;
     transition: 0.4s;
   }
+
   .show-menu-btn,.hide-menu-btn{
     transition: 0.4s;
     font-size: 30px;
     cursor: pointer;
     display: none;
   }
+
   .show-menu-btn{
     float: right;
   }
+
   .show-menu-btn i{
     line-height: 100px;
   }
+
   .menu a:hover,
   .show-menu-btn:hover,
   .hide-menu-btn:hover{
@@ -51,7 +54,6 @@
     float: right;
     margin-top: 50px;
     transform: translate(-50%,-50%);
-    transition: all 1s;
     width: 50px;
     height: 50px;
     background: white;
@@ -61,35 +63,15 @@
   }
 
   input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;;
+    float: inherit;
     height: 42.5px;
-    line-height: 30px;
-    outline: 0;
     border: 0;
-    display: none;
     font-size: 1em;
     border-radius: 20px;
     padding: 0 20px;
   }
 
-  .search-area:hover{
-    width: 200px;
-    cursor: pointer;
-}
-
-.search-area:hover input{
-    display: block;
-}
-
-.search-area:hover .fa{
-    background:  #34495e;
-    color: white;
-}
-
-  .fa{
+  .fa {
     box-sizing: border-box;
     padding: 10px;
     width: 42.5px;
@@ -104,20 +86,15 @@
     transition: all 1s;
 }
 
-.list-group {
-   z-index: 9999;
-  
-}
-
-  @media screen and (max-width:1000px) {
+  @media screen and (max-width:1188px) {
     .show-menu-btn,.hide-menu-btn{
       display: block;
-      z-index: 999;
     }
+
     .menu{
       position: fixed;
       width: 100%;
-      height: 100vh;
+      height: 100%;
       background: #333;
       right: -100%;
       top: 0;
@@ -125,11 +102,14 @@
       padding: 80px 0;
       line-height: normal;
       transition: 0.7s;
+      z-index: 999;
     }
+
     .menu a{
       display: block;
       padding: 20px;
     }
+
     .hide-menu-btn{
       position: absolute;
       top: 40px;
@@ -139,4 +119,22 @@
       right: 0;
     }
   }
+
+  .list-group {
+    transform: translate(-90%,30%);
+    color: black;
+    position: absolute;
+    width: 200px;
+    margin-right: 25px;
+    transition: all 0.5s ;
+  }
+
+  span:hover{
+    color: red;
+    background: -o-repeating-linear-gradient(#333)
+  }
+
+
+
+
   

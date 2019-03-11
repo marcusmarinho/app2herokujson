@@ -2,8 +2,9 @@ import { Oferta } from '../shared/oferta.model'
 import { Injectable } from '@angular/core'
 import { URL_API } from '../app.api'
 import { Observable } from 'rxjs'
-import '../util/rxjs-extensions'
 import { Http, Response } from '@angular/http'
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/retry";
 
 
 @Injectable()
@@ -14,11 +15,13 @@ export class OfertasService {
     public getOfertas(): Observable<Oferta[]> {
         return this.http.get(`${URL_API}/ofertas`)
             .map((resposta: Response) => resposta.json())
+            
     }
 
     public getOfertasPorCategoria(categoria: string): Observable<Oferta[]> {
         return this.http.get(`${URL_API}/ofertas?categoria=${categoria}`)
             .map((resposta: Response) => resposta.json())
+         
     }
 
     public getOfertasPorId(id: number): Observable<Oferta> {

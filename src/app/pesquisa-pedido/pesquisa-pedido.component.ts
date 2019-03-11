@@ -42,7 +42,7 @@ export class PesquisaPedidoComponent implements OnInit {
     else {
       this.ofertasService.consultaPedido(this.consultaFormulario.value.numeroDoPedido).subscribe(res => {
       
-        if (res == undefined){
+        if (!res){
           this.eraseForm()
           this.controle = false
           this.controleValor = false
