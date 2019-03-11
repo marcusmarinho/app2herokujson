@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { OfertasService } from '../oferta/ofertas.service'
 import { Oferta } from '../shared/oferta.model'
 import { Observable ,  Subject, of } from 'rxjs'
@@ -18,6 +18,7 @@ import "rxjs/add/observable/of"
 export class TopoComponent implements OnInit {
 
   constructor(private ofertasService: OfertasService) { }
+
 
   //Como estamos lidando com Observable precisamos converter o nosso objeto do type (Object)para Observable              
   public ofertas

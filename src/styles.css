@@ -1,4 +1,18 @@
+body{
+    background: linear-gradient(to right, #ffffff, #ffffff);
+}
 
+.card{
+    background-color: rgba(219, 221, 226, 0.5);
+}
+
+.card h4 {
+    text-align: center;
+}
+
+.card p {
+    margin-left: 7px;
+}
 
 .card img {
     height: 200px;
