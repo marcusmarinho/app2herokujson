@@ -121,6 +121,7 @@
     #chk:checked ~ .menu{
       right: 0;
     }
+   
   }
 
   .list-group {

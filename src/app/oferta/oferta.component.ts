@@ -29,7 +29,7 @@ export class OfertaComponent implements OnInit {
       this.ofertasService.getOfertasPorId(parametros.id)
         .subscribe((oferta: Oferta) => {
           this.oferta = oferta
-          console.log(this.oferta)
+          console.log('ofertas',this.oferta)
         })
     })
   }

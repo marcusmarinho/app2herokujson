@@ -10,7 +10,7 @@
 <body>
   
   <div class="header">
-    <input type="checkbox" id="chk" #checkControl>
+    <input type="checkbox" id="chk">
     <label for="chk" class="show-menu-btn">
       <i class="fas fa-ellipsis-h"></i>
     </label>
@@ -30,12 +30,12 @@
     </div>
 
     <ul class="menu">
-      <a routerLinkActive="active" routerLink="">Home</a>
-      <a routerLinkActive="active" routerLink="/restaurantes">Restaurantes</a>
-      <a routerLinkActive="active" routerLink="/diversao">Diversão</a>
-      <a routerLinkActive="active" routerLink="/pesquisapedido">Consultar Pedido</a>
-      <a routerLinkActive="active" routerLink="/alterapedido">Alterar Pedido</a>
-      <a routerLinkActive="active" routerLink="/ordem-compra">Carrinho</a>
+      <a class="menulink" routerLinkActive="active" routerLink="">Home</a>
+      <a class="menulink" routerLinkActive="active" routerLink="/restaurantes">Restaurantes</a>
+      <a class="menulink" routerLinkActive="active" routerLink="/diversao">Diversão</a>
+      <a class="menulink" routerLinkActive="active" routerLink="/pesquisapedido">Consultar Pedido</a>
+      <a class="menulink" routerLinkActive="active" routerLink="/alterapedido">Alterar Pedido</a>
+      <a class="menulink" routerLinkActive="active" routerLink="/ordem-compra">Carrinho</a>
       <label for="chk" class="hide-menu-btn">
         <i class="fas fa-times"></i>
       </label>

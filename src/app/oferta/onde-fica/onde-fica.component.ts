@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-//Import ActivatedRoute para que seja feito a recuperacao da rota pai (id da oferta)
 import { ActivatedRoute, Params } from '@angular/router'
 import { OfertasService } from '../ofertas.service'
 

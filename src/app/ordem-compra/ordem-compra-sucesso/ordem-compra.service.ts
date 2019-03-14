@@ -1,8 +1,8 @@
-import { Pedido } from '../shared/pedido.model'
+import { Pedido } from '../../shared/pedido.model'
 import { Injectable } from '@angular/core'
 import { Http, RequestOptions, Headers, Response } from '@angular/http'
 import { Observable } from 'rxjs';
-import { URL_API } from '../app.api'
+import { URL_API } from '../../app.api'
 
 @Injectable()
 export class OrdemCompraService{

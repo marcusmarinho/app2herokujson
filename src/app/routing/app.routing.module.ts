@@ -4,24 +4,11 @@ import { Routes } from '@angular/router'
 import { RouterModule } from '@angular/router'
 
 import { HomeComponent } from '../home/home.component'
-import { RestaurantesComponent } from '../restaurantes/restaurantes.component'
-import { DiversaoComponent } from '../diversao/diversao.component'
-import { OrdemCompraComponent } from '../ordem-compra/ordem-compra.component'
-import { PesquisaPedidoComponent } from '../pesquisa-pedido/pesquisa-pedido.component'
-import { AlteraPedidoComponent } from '../altera-pedido/altera-pedido.component'
-import { OfertaComponent } from '../oferta/oferta.component';
 
-export  const ROUTES: Routes = [
+export const ROUTES: Routes = [
 
     { path: '', component: HomeComponent },
-    { path: 'oferta', component: OfertaComponent},
 
-    { path: 'restaurantes', component: RestaurantesComponent },
-    { path: 'diversao', component: DiversaoComponent },
-    { path: 'pesquisapedido', component: PesquisaPedidoComponent },
-    { path: 'alterapedido', component: AlteraPedidoComponent },
-  //  { path: 'oferta', component: HomeComponent },
-    { path: 'ordem-compra', component: OrdemCompraComponent }
  ]
 
 @NgModule({

@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
     
     this.ofertasService.getOfertas()
       .subscribe((ofertas: Oferta[]) => {
+        console.log('ofertasrewff',ofertas)
         this.ofertas = ofertas
       })
 

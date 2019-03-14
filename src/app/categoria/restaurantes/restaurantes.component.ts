@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OfertasService } from '../oferta/ofertas.service';
-import { Oferta } from '../shared/oferta.model';
+import { OfertasService } from '../../oferta/ofertas.service';
+import { Oferta } from '../../shared/oferta.model';
 
 @Component({
   selector: 'app-restaurantes',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdemCompraService } from '../ordem-compra-sucesso/ordem-compra.service'
+import { OrdemCompraService } from '../ordem-compra/ordem-compra-sucesso/ordem-compra.service'
 import { Pedido } from '../shared/pedido.model'
 import { FormGroup, FormControl, Validators } from '../../../node_modules/@angular/forms';
 import { CarrinhoService } from './carrinho.service'
