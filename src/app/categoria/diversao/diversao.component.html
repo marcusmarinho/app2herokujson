@@ -15,7 +15,7 @@
 
     <hr />
 
-    <div *ngFor='let oferta of ofertas'>
+    <div *ngFor='let oferta of ofertas$ | async'>
       <div class="row">
         <div class="col-md-4">
           <img [src]="oferta.imagens[0].url" class="img-fluid" />

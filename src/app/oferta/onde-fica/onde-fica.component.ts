@@ -11,16 +11,16 @@ import { OfertasService } from '../ofertas.service'
 export class OndeFicaComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-    private ofertasService: OfertasService) { }
+              private ofertasService: OfertasService) { }
 
-  public ondeFica: string = ''
+  public ondefica: string = ''
 
   ngOnInit() {
 
     this.route.parent.params.subscribe((parametros: Params) => {
       this.ofertasService.getOndeFicaOfertaPorId(parametros.id)
         .subscribe((descricao: string) => {
-          this.ondeFica = descricao
+          this.ondefica = descricao
         })
     })
   }

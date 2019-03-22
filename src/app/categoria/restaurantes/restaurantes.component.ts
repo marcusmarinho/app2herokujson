@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OfertasService } from '../../oferta/ofertas.service';
 import { Oferta } from '../../shared/oferta.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-restaurantes',
@@ -8,18 +9,14 @@ import { Oferta } from '../../shared/oferta.model';
   styleUrls: ['./restaurantes.component.css'],
   providers: [OfertasService]
 })
+
 export class RestaurantesComponent implements OnInit {
 
-  public ofertas: Array<Oferta>
+  ofertas$: Observable <Oferta[]>;
 
   constructor(private ofertasService: OfertasService) { }
 
   ngOnInit() {
-    //o componente recupera os dados da requisição http para API REST(banco-de-dados.json)
-    //dessa forma conseguimos fazer o data binding e alinhar o template
-    this.ofertasService.getOfertasPorCategoria('restaurante')
-      .subscribe((ofertas: Oferta[]) => {
-        this.ofertas = ofertas
-      })     
+    this.ofertas$ = this.ofertasService.getOfertasPorCategoria('restaurante');
   }
 }

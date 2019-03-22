@@ -7,15 +7,19 @@ import { Oferta } from '../shared/oferta.model'
 import { CarrinhoService } from '../ordem-compra/carrinho.service'
 //Service
 import { OfertasService } from './ofertas.service'
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-oferta',
   templateUrl: './oferta.component.html',
   styleUrls: ['./oferta.component.css'],
-  providers: [ OfertasService ]
+  providers: [OfertasService]
 })
 
 export class OfertaComponent implements OnInit {
+
+  public ofertas$: Observable<Oferta>
 
   public oferta: Oferta
 
@@ -24,20 +28,20 @@ export class OfertaComponent implements OnInit {
               private carrinhoService: CarrinhoService) { }
 
   ngOnInit() {
-
+    
     this.route.params.subscribe((parametros: Params) => {
       this.ofertasService.getOfertasPorId(parametros.id)
         .subscribe((oferta: Oferta) => {
           this.oferta = oferta
-          console.log('ofertas',this.oferta)
         })
     })
+
   }
 
   public adicionarItemCarrinho(oferta: Oferta): void {
- 
+
     this.carrinhoService.incluirItem(this.oferta)
-    console.log('exibir itens' ,this.carrinhoService.exibirItens())
+    console.log('exibir itens', this.carrinhoService.exibirItens())
   }
 
 }

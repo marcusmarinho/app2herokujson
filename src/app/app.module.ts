@@ -7,6 +7,7 @@ import ptBr from '@angular/common/locales/pt';
 registerLocaleData(ptBr)
 
 import { HttpModule } from '@angular/http' 
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component'
@@ -33,12 +34,13 @@ import { CrudModule } from  './crud/crud.module'
     DescricaoReduzida
   ],
   imports: [
+    HttpModule,
     OfertaModule,
     CategoriaModule,
     OrdemCompraModule,
     CrudModule,
     BrowserModule,
-    HttpModule,
+    HttpClientModule ,
     AppRoutingModule,
   ],
   providers: [ {  provide: LOCALE_ID, useValue: 'pt'} ],

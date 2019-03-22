@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OfertasService} from '../../oferta/ofertas.service';
 import { Oferta } from '../../shared/oferta.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-diversao',
@@ -10,16 +11,13 @@ import { Oferta } from '../../shared/oferta.model';
 })
 export class DiversaoComponent implements OnInit {
 
-  public ofertas: Array<Oferta>
+  ofertas$: Observable <Oferta[]>;
 
   constructor(private ofertasService: OfertasService) { }
 
   ngOnInit() {
-    //o componente recupera os dados da requisição http para API REST(banco-de-dados.json)
-    //dessa forma conseguimos fazer o data binding e alinhar o template(que em outro momento estava estatico)
-    this.ofertasService.getOfertasPorCategoria('diversao')
-      .subscribe(( ofertas: Oferta[]) => {
-        this.ofertas = ofertas
-      })
+    
+    this.ofertas$ = this.ofertasService.getOfertasPorCategoria('diversao');
+    
     }
 }

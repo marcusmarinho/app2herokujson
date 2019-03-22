@@ -11,7 +11,7 @@
   
       <div class="row">
         <div class="col">
-          <h4>{{ descricao_oferta }}</h4>
+          <h4>{{ oferta.descricao_oferta }}</h4>
         </div>
       </div>
 
@@ -59,8 +59,7 @@
                   Usar</a>
               </li>
               <li class="nav-item">
-                <!--[routerLink] podemos usar a notação de property biding caso seja necessário passar parametros para a rota-->
-                <a class="nav-link" data-toggle="tab" role="tab" routerLink="onde-fica">Onde Fica</a>
+                <a class="nav-link active" data-toggle="tab" role="tab" routerLink="onde-fica">Onde Fica</a>
               </li>
             </ul>
             <div class="tab-content" id="myTabContent">
