@@ -1,30 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { OfertasService } from '../oferta/ofertas.service'
-import { Oferta } from '../shared/oferta.model';
+import { OfferService } from '../offer/offer.service'
+import { Offer } from '../shared/offer.model';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [OfertasService]
+  providers: [OfferService]
 })
 
 export class HomeComponent implements OnInit {
 
-  //public ofertas: Array<Oferta>
-
-  ofertas$: Observable<Oferta[]>;
+  offer$: Observable<Offer[]>;
   
-  constructor(private ofertasService: OfertasService) { }
+  constructor(private offerService: OfferService) { }
 
   ngOnInit() {
-   /**  
-    this.ofertasService.getOfertas()
-      .subscribe((ofertas: Oferta[]) => {
-        this.ofertas = ofertas
-      })
-      */
-     this.ofertas$ = this.ofertasService.getOfertas();
+ 
+     this.offer$ = this.offerService.getOffer();
   }
 }

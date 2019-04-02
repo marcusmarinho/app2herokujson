@@ -18,10 +18,10 @@ import { RodapeComponent } from './rodape/rodape.component'
 import { DescricaoReduzida } from './util/descricao-reduzida.pipe'
 
 //Modules
-import { OfertaModule } from './oferta/oferta.module';
-import { CategoriaModule} from './categoria/categoria.module'
+import { OfferModule } from './offer/offer.module';
+import { CategoryModule} from './category/category.module'
 import { AppRoutingModule } from './routing/app.routing.module';
-import { OrdemCompraModule } from './ordem-compra/ordem-compra.module';
+import { OrderPurchaseModule } from './order-purchase/order-purchase.module';
 import { CrudModule } from  './crud/crud.module'
 
 //PedidoModule
@@ -35,9 +35,9 @@ import { CrudModule } from  './crud/crud.module'
   ],
   imports: [
     HttpModule,
-    OfertaModule,
-    CategoriaModule,
-    OrdemCompraModule,
+    OfferModule,
+    CategoryModule,
+    OrderPurchaseModule,
     CrudModule,
     BrowserModule,
     HttpClientModule ,

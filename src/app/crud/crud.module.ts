@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AlteraPedidoComponent } from './altera-pedido/altera-pedido.component';
-import { PesquisaPedidoComponent } from './pesquisa-pedido/pesquisa-pedido.component'
-import { ReactiveFormsModule } from '@angular/forms'
-import { OfertasService } from '../oferta/ofertas.service';
+import { ChangeOrderComponent } from './change-order/change-order.component';
+import { SearchOrderComponent } from './search-order/search-order.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { OfferService } from '../offer/offer.service';
 
 import { CrudRoutingModule } from './crud.routing.module';
 
 @NgModule({
   declarations: [
-    AlteraPedidoComponent,
-    PesquisaPedidoComponent,
+    ChangeOrderComponent,
+    SearchOrderComponent,
   ],
   imports: [
     CommonModule,
@@ -19,11 +19,11 @@ import { CrudRoutingModule } from './crud.routing.module';
     ReactiveFormsModule
   ],
   exports:[
-    AlteraPedidoComponent,
-    PesquisaPedidoComponent,
+    ChangeOrderComponent,
+    SearchOrderComponent,
   ],
   providers:[
-    OfertasService,
+    OfferService,
   ],
 })
 export class CrudModule { }

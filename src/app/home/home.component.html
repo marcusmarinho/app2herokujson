@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="utf-8"/>
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
@@ -16,7 +16,7 @@
     <hr />
 
     <div class="row">
-      <div class="col-sm-4" *ngFor="let oferta of ofertas$ | async">
+      <div class="col-sm-4" *ngFor="let oferta of offer$ | async">
         <div class="card" style="align-content: flex-start">
           <img class="card-img-top" [src]="oferta.imagens[0].url">
           <div class="card-block">

@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 
-import { Routes } from '@angular/router'
-import { RouterModule } from '@angular/router'
+import { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
-import { PesquisaPedidoComponent } from './pesquisa-pedido/pesquisa-pedido.component'
-import { AlteraPedidoComponent } from './altera-pedido/altera-pedido.component'
+import { SearchOrderComponent } from './search-order/search-order.component';
+import { ChangeOrderComponent } from './change-order/change-order.component';
 
 export const crudRoutes: Routes = [
 
-    { path: 'pesquisapedido', component: PesquisaPedidoComponent },
-    { path: 'alterapedido', component: AlteraPedidoComponent },
+    { path: 'consulta-pedido', component: SearchOrderComponent },
+    { path: 'altera-pedido', component: ChangeOrderComponent },
 
  ]
 
