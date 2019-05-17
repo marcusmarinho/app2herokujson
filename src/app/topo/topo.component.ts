@@ -19,7 +19,7 @@ import { CartService } from '../order-purchase/cart.service';
 export class TopoComponent implements OnInit {
 
   constructor(private offersService: OfferService,
-              private cartService: CartService) { }
+              public cartService: CartService) { }
 
   public offers
   
