@@ -11,7 +11,6 @@ class CartService {
 
     public exibirItens(): ItemCart[] {
         return this.itens
-
     }
 
     public exibirDadosDaCompra(){
@@ -39,6 +38,14 @@ class CartService {
             //metodo push permite pegar alguma informação e add no array
             this.itens.push(itemCarrinho)
         }
+    }
+
+    public getCartQt(): number {
+        let totalItens: number = null
+        this.itens.map((item: ItemCart) => {
+            totalItens += item.quantidade
+        })
+        return totalItens
     }
     
     public totalCarrinhoCompras(): number {

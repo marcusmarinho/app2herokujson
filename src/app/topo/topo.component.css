@@ -133,10 +133,12 @@
     transition: all 0.5s ;
   }
 
-  span:hover{
-    color: red;
-    background: -o-repeating-linear-gradient(#333)
+  .menu span {
+    font-size: 15px;
+    background-color: #96DFE7!important;
+    color: white;
   }
+
 
 
 

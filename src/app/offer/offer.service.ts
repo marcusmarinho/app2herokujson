@@ -64,10 +64,10 @@ export class OfferService {
     public searchPedido(idDoPedido: number): Observable<any> {
         return this.http.get(`${URL_API}/pedidos?id=${idDoPedido}`)
           .pipe(
-              map((resp: any ) =>{
-                  return resp.id
+              map((resp: any ) => {
+                  return resp.shift()
               })
-          )
+           )
     }
     
 }

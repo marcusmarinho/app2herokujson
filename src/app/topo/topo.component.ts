@@ -1,12 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { OfferService } from '../offer/offer.service'
 import { Offer } from '../shared/offer.model'
-import { Observable ,  Subject, of } from 'rxjs'
+import { Observable ,  Subject } from 'rxjs'
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/distinctUntilChanged"
 import "rxjs/add/operator/switchMap"
 import "rxjs/add/operator/catch"
 import "rxjs/add/observable/of"
+import { CartService } from '../order-purchase/cart.service';
 
 @Component({
   selector: 'app-topo',
@@ -17,7 +18,8 @@ import "rxjs/add/observable/of"
 
 export class TopoComponent implements OnInit {
 
-  constructor(private offersService: OfferService) { }
+  constructor(private offersService: OfferService,
+              private cartService: CartService) { }
 
   public offers
   
@@ -28,7 +30,7 @@ export class TopoComponent implements OnInit {
       .debounceTime(1000) 
       .distinctUntilChanged()
       .switchMap((termo: string) => {
-        console.log('Requisicao http para api')
+        console.log('Requisicao http para api', termo)
 
         if (termo.trim() === '') {
           return Observable.of<Offer[]>([])
@@ -39,9 +41,9 @@ export class TopoComponent implements OnInit {
         console.log(err)
         return Observable.of<Offer[]>([])
       })
+
   }
 
-  //TIPO OBSERVABLE
   public search(termoDaBusca: string): void {
     this.subjectPesquisa.next(termoDaBusca)
   }
