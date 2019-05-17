@@ -14,7 +14,7 @@ import { ItemCart } from '../shared/item-cart.model';
 
 export class OrderPurchaseComponent implements OnInit {
 
-  public idOrderPurchase: number
+  public idOrderPurchase: number = undefined
   public itensCart: ItemCart[] = []
   public alteraQuantidade: boolean
 
@@ -55,18 +55,17 @@ export class OrderPurchaseComponent implements OnInit {
           this.formulario.value.formaPagamento,
           //passa para nossa api rest os itens comprados
           this.cartService.exibirItens()
-          
         )
         
         this.orderPurchaseService.efetivarCompra(order)
         
           .subscribe((idOrder: number) => {
-            
-            this.idOrderPurchase = idOrder
+            this.idOrderPurchase = idOrder;
+
+            if (!this.idOrderPurchase) {
+              alert('Bad Error')
+            }
           })      
-        if(!this.idOrderPurchase){
-          console.log('tem algo errado')
-        }
       }
       this.updateCart()
     }
