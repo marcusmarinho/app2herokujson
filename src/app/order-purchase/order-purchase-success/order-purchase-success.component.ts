@@ -12,6 +12,7 @@ export class OrderPurchaseSuccessComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

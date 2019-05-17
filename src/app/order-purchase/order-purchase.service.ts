@@ -28,7 +28,10 @@ export class OrderPurchaseService{
             new RequestOptions({ headers: headers})//cabeçalho da requisição, atraves disso a API rest consegue identificar que a requisição post que está sendo feita é para API propriamente dita
         )
         .pipe(
-            map((resposta) =>{ resposta.json().id})
+            map((resposta) =>
+            { 
+               return resposta.json().id
+            })
         )
 
     }

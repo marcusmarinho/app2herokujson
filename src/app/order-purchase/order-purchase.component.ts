@@ -61,16 +61,16 @@ export class OrderPurchaseComponent implements OnInit {
         this.orderPurchaseService.efetivarCompra(order)
         
           .subscribe((idOrder: number) => {
+            
             this.idOrderPurchase = idOrder
           })      
-        if(this.idOrderPurchase = null){
+        if(!this.idOrderPurchase){
           console.log('tem algo errado')
         }
       }
       this.updateCart()
     }
   
-
   public updateCart(): void {
       this.itensCart.length = 0
   }
