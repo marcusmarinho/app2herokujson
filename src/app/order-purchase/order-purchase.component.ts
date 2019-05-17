@@ -32,7 +32,7 @@ export class OrderPurchaseComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.itensCart = this.cartService.exibirItens()
+    this.itensCart = this.cartService.exibirItens();
   }
 
   public confirmarCompra(): void {
@@ -42,6 +42,10 @@ export class OrderPurchaseComponent implements OnInit {
         this.formulario.get('numero').markAsTouched(),
         this.formulario.get('complemento').markAsTouched(),
         this.formulario.get('formaPagamento').markAsTouched()
+    } 
+
+    if (this.cartService.exibirItens().length === 0) {
+      alert ('Nenhum item selecionado');
     } else {
 
         let order: Order = new Order(

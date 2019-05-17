@@ -10,11 +10,7 @@ class CartService {
     public itemCarrinhoEncontrado: any
 
     public exibirItens(): ItemCart[] {
-        return this.itens
-    }
-
-    public exibirDadosDaCompra(){
-        return 
+        return this.itens;
     }
 
     public incluirItem(offer: Offer): void {
@@ -54,7 +50,6 @@ class CartService {
         this.itens.map((item: ItemCart) => {
             total += (item.valor * item.quantidade)
         })
-
         return total
     }
 
