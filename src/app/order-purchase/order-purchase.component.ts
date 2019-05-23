@@ -14,9 +14,9 @@ import { ItemCart } from '../shared/item-cart.model';
 
 export class OrderPurchaseComponent implements OnInit {
 
-  public idOrderPurchase: number = undefined
-  public itensCart: ItemCart[] = []
-  public alteraQuantidade: boolean
+  public idOrderPurchase: number = undefined;
+  public itensCart: ItemCart[] = [];
+  public alteraQuantidade: boolean;
 
   //Funciona como um controlador que sera inserido no nosso formulario
   public formulario: FormGroup = new FormGroup({
@@ -24,7 +24,7 @@ export class OrderPurchaseComponent implements OnInit {
     'numero': new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(6)]),
     'complemento': new FormControl(null),
     'formaPagamento': new FormControl(null, [Validators.required])
-  })
+  });
 
   constructor(
     private orderPurchaseService: OrderPurchaseService,
@@ -63,18 +63,18 @@ export class OrderPurchaseComponent implements OnInit {
             this.idOrderPurchase = idOrder;
 
             if (!this.idOrderPurchase) {
-              alert('Bad Error')
+              alert('Bad Error');
             }
           })      
       }
-      this.updateCart()
+      this.updateCart();
     }
   
   public updateCart(): void {
-      this.itensCart.length = 0
+      this.itensCart.length = 0;
   }
 
   public alterar(item: ItemCart, alteraQuantidade): void {
-    this.cartService.alteraQuantidade(item, alteraQuantidade)
+    this.cartService.alteraQuantidade(item, alteraQuantidade);
   }
 }

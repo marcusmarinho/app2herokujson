@@ -1,8 +1,8 @@
-import { Order } from '../shared/order.model'
-import { Injectable } from '@angular/core'
-import { Http, RequestOptions, Headers, Response } from '@angular/http'
+import { Order } from '../shared/order.model';
+import { Injectable } from '@angular/core';
+import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
-import { URL_API } from '../app.api'
+import { URL_API } from '../app.api';
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -11,10 +11,10 @@ export class OrderPurchaseService{
     constructor(private http: Http) { }
     public efetivarCompra(pedido: Order): Observable<any> {
 
-        let headers: Headers = new Headers()
+        let headers: Headers = new Headers();
 
         //Informação contida no metodo post ou seja o objeto pedido
-        headers.append('Content-type', 'application/json')
+        headers.append('Content-type', 'application/json');
     /*Headers
       Many servers require extra headers for save operations. 
       For example, they may require a "Content-Type" header to explicitly declare the 
@@ -28,10 +28,7 @@ export class OrderPurchaseService{
             new RequestOptions({ headers: headers})//cabeçalho da requisição, atraves disso a API rest consegue identificar que a requisição post que está sendo feita é para API propriamente dita
         )
         .pipe(
-            map((resposta) =>
-            { 
-               return resposta.json().id
-            })
+            map((resposta) => resposta.json().id)
         )
 
     }
