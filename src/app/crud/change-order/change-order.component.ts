@@ -18,11 +18,11 @@ export class ChangeOrderComponent implements OnInit {
     'formaDePagamento': new FormControl({disable: true}, [Validators.required])
   })
 
-  private controle: boolean;
+  controle: boolean;
 
-  private controleValor: boolean;
+  controleValor: boolean;
 
-  private order: Order;
+  order: Order;
 
   constructor(private ofertasService: OfferService,
               ) { }
