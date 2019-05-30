@@ -6,7 +6,7 @@ import { Order } from '../../shared/order.model';
 @Component({
   selector: 'app-change-order',
   templateUrl: './change-order.component.html',
-  styleUrls: ['./change-order.component.css']
+  styleUrls: ['./change-order.component.scss']
 })
 export class ChangeOrderComponent implements OnInit {
 

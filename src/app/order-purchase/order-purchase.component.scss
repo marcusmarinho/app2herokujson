@@ -1,3 +1,6 @@
+$base-invalid-color: red;
+$base-valid-color:green;
+
 .ordem-compra{
     margin-top: 70px;
     margin-bottom: 60px;
@@ -7,17 +10,17 @@
 CSS para validacao do formulario
 */
 input.ng-invalid.ng-touched {
-    border: 1px solid red;
+    border: 1px solid $base-invalid-color;
 }
 
 select.ng-invalid.ng-touched {
-    border: 1px solid red;
+    border: 1px solid $base-invalid-color;
 }
 
 input.ng-valid.ng-touched {
-    border: 1px solid green;
+    border: 1px solid $base-valid-color;
 }
 
 select.ng-valid.ng-touched {
-    border: 1px solid green;
+    border: 1px solid $base-valid-color;
 }

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-restaurants',
   templateUrl: './restaurants.component.html',
-  styleUrls: ['./restaurants.component.css'],
+  styleUrls: ['./restaurants.component.scss'],
   providers: [OfferService]
 })
 

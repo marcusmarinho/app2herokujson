@@ -7,7 +7,7 @@ import { HttpHeaders, HttpErrorResponse, HttpHeaderResponse, HttpHandler, HttpRe
 @Component({
   selector: 'app-search-order',
   templateUrl: './search-order.component.html',
-  styleUrls: ['./search-order.component.css'],
+  styleUrls: ['./search-order.component.scss'],
   providers: [OfferService]
 })
 

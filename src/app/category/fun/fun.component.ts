@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-fun',
   templateUrl: './fun.component.html',
-  styleUrls: ['./fun.component.css'],
+  styleUrls: ['./fun.component.scss'],
   providers:[ OfferService ]
 })
 export class FunComponent implements OnInit {

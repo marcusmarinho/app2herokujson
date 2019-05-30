@@ -5,7 +5,7 @@ import { OfferService } from '../offer.service';
 @Component({
   selector: 'app-where-is',
   templateUrl: './where-is.component.html',
-  styleUrls: ['./where-is.component.css'],
+  styleUrls: ['./where-is.component.scss'],
   providers: [OfferService]
 })
 export class WhereIsComponent implements OnInit {

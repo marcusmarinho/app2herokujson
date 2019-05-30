@@ -6,7 +6,7 @@ import { OfferService } from '../offer.service'
 @Component({
   selector: 'app-how-use',
   templateUrl: './how-use.component.html',
-  styleUrls: ['./how-use.component.css'],
+  styleUrls: ['./how-use.component.scss'],
   providers: [OfferService]
 })
 export class HowUseComponent implements OnInit {

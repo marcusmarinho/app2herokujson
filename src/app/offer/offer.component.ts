@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-offer',
   templateUrl: './offer.component.html',
-  styleUrls: ['./offer.component.css'],
+  styleUrls: ['./offer.component.scss'],
   providers: [OfferService]
 })
 

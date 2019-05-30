@@ -8,7 +8,7 @@ import { ItemCart } from '../shared/item-cart.model';
 @Component({
   selector: 'app-order-purchase',
   templateUrl: './order-purchase.component.html',
-  styleUrls: ['./order-purchase.component.css'],
+  styleUrls: ['./order-purchase.component.scss'],
   providers: [OrderPurchaseService]
 })
 

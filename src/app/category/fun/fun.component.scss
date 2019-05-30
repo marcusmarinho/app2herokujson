@@ -1,0 +1,12 @@
+$container-position: 25px;
+
+img {
+    border-radius: 5px;
+    width: 320px;
+    height: 200px
+}
+
+.container {
+    padding-left:  $container-position;
+    padding-right: $container-position;
+}
