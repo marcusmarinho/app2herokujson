@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+  <div class="card" >
+    <form [formGroup]="deleteOrderForm" >
+          <div class="form-box">
+              <input class="form-control" formControlName="orderNumber" type="number" placeholder="Digite o numero do Pedido">
+          </div>
+
+          <div class="btnSearch">
+              <button (click)="searchOrder()" class="btn btn-primary btn-xs">
+                  <i class="fas fa-search"></i>
+              </button>
+          </div>
+
+          <ng-template [ngIf]="controle">
+            <label>{{order.itens[0].titulo}}</label>
+            <label>{{order.itens[0].descricao_oferta}}</label>
+            <label>{{order.formaPagamento}}</label><br/>
+            <label>{{order.numero}}</label>
+          </ng-template>
+
+          <div class="area-image">
+            <ng-template [ngIf]="controle">
+                <img [src]="order.itens[0].img.url" class="img-fluid">  
+            </ng-template>
+          </div>
+
+          <div class="btnDelete">
+            <ng-template [ngIf]="controle" [ngIfElse]="btnFalse">
+              <div>
+                  <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-xs">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+              </div>
+          </ng-template>
+      
+          <ng-template #btnFalse>
+              <div>
+                  <button (click)="deleteOrder()" disabled="disabled" class="btn btn-primary btn-xs">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+              </div>
+          </ng-template>
+        </div>
+    </form>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Deseja Realmente Excluir?</h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteOrder()">Excluir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</body>
+</html>

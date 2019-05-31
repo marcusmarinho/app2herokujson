@@ -77,4 +77,13 @@ export class OfferService {
         return this.http.put(`${URL_API}/pedidos/${idDoPedido}`, data)
             .pipe(take(1));
     }
+
+    public deleteOrder(idDoPedido: number): Observable<any> {
+        let headers: Headers = new Headers();
+
+        headers.append('Contet-type', 'application/json');
+
+        return this.http.delete(`${URL_API}/pedidos/${idDoPedido}`)
+            .pipe(take(1));
+    }
 }

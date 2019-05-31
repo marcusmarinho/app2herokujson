@@ -2,13 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Order } from '../../shared/order.model';
 import { OfferService } from '../../offer/offer.service';
-import { HttpHeaders, HttpErrorResponse, HttpHeaderResponse, HttpHandler, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-search-order',
   templateUrl: './search-order.component.html',
-  styleUrls: ['./search-order.component.scss'],
-  providers: [OfferService]
+  styleUrls: ['./search-order.component.scss']
 })
 
 export class SearchOrderComponent implements OnInit {

@@ -1,0 +1,40 @@
+.card {
+    max-width: 500px;
+    margin: auto;
+    padding: 25px;
+    margin-top:30px;
+
+    button{
+        i {
+            font-size: 35px;
+        }
+    }
+    input{
+        max-width: 135px;
+    }
+
+    p {
+        margin-top: 30px;
+    }
+}
+
+.area-image {
+    margin-top: 30px;
+    margin-left: auto;
+    width: 140px;
+    height: 140px;
+    
+    img {
+         height: 100%;
+         width: 100%;
+    }
+}
+
+.form-box{
+    margin-right: 30px;
+    float: left;
+}
+
+.modal-footer{
+    margin: auto;
+}

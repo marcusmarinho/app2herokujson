@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { URL_API } from '../app.api';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 
 @Injectable()
 export class OrderPurchaseService{
@@ -28,6 +28,7 @@ export class OrderPurchaseService{
             new RequestOptions({ headers: headers})//cabeçalho da requisição, atraves disso a API rest consegue identificar que a requisição post que está sendo feita é para API propriamente dita
         )
         .pipe(
+            take(1),
             map((resposta) => resposta.json().id)
         )
 

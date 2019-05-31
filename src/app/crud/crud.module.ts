@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ChangeOrderComponent } from './change-order/change-order.component';
 import { SearchOrderComponent } from './search-order/search-order.component';
+import { DeleteOrderComponent } from './delete-order/delete-order.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OfferService } from '../offer/offer.service';
 
@@ -12,6 +13,7 @@ import { CrudRoutingModule } from './crud.routing.module';
   declarations: [
     ChangeOrderComponent,
     SearchOrderComponent,
+    DeleteOrderComponent
   ],
   imports: [
     CommonModule,

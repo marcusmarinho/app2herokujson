@@ -22,7 +22,7 @@ import { OfferModule } from './offer/offer.module';
 import { CategoryModule} from './category/category.module'
 import { AppRoutingModule } from './routing/app.routing.module';
 import { OrderPurchaseModule } from './order-purchase/order-purchase.module';
-import { CrudModule } from  './crud/crud.module'
+import { CrudModule } from  './crud/crud.module';
 
 //PedidoModule
 @NgModule({
@@ -31,7 +31,7 @@ import { CrudModule } from  './crud/crud.module'
     TopoComponent,
     HomeComponent,
     RodapeComponent,
-    DescricaoReduzida
+    DescricaoReduzida,
   ],
   imports: [
     HttpModule,
