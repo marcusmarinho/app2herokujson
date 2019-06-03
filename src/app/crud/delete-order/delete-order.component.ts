@@ -12,7 +12,7 @@ export class DeleteOrderComponent implements OnInit {
 
   public deleteOrderForm: FormGroup = new FormGroup({
     'orderNumber': new FormControl(null, [Validators.required])
-  })
+  });
 
   constructor(private offerService: OfferService) { }
 
@@ -24,6 +24,7 @@ export class DeleteOrderComponent implements OnInit {
     this.order = new Order;
     this.controle = false;
   }
+
 
   searchOrder() {
     this.offerService.searchPedido(this.deleteOrderForm.value.orderNumber)
@@ -42,7 +43,7 @@ export class DeleteOrderComponent implements OnInit {
   deleteOrder() {
     this.offerService.deleteOrder(this.deleteOrderForm.value.orderNumber)
     .subscribe((res=>{
-      alert('Pedido Excluido')
+      alert('Pedido Excluido');
       this.ngOnInit(); 
     }))
   }

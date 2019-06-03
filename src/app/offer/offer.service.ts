@@ -12,11 +12,11 @@ export class OfferService {
     constructor(private http: HttpClient) { }
 
     public getOffer(): Observable<Offer[]> {
-        return this.http.get<Offer[]>(`${URL_API}/ofertas`)
+        return this.http.get<Offer[]>(`${URL_API}/ofertas`);
     }
 
     public getOfferByCategory(categoria: string): Observable<Offer[]> {
-        return this.http.get<Offer[]>(`${URL_API}/ofertas?categoria=${categoria}`)
+        return this.http.get<Offer[]>(`${URL_API}/ofertas?categoria=${categoria}`);
     }
 
     public getOfferById(id: number): Observable<Offer> {
@@ -25,7 +25,7 @@ export class OfferService {
             .pipe(
                 take(1),
                 map((ofer: Offer) => {
-                    return ofer[0]
+                    return ofer[0];
                 })
             );
     }
@@ -36,7 +36,7 @@ export class OfferService {
             .pipe(
                 take(1),
                 map((resp: Offer) => {
-                    return resp[0].descricao
+                    return resp[0].descricao;
                 })
             );
     }
@@ -47,7 +47,7 @@ export class OfferService {
             .pipe(
                 take(1),
                 map((resp: Offer) => {
-                    return resp[0].descricao
+                    return resp[0].descricao;
                 })
             );
     }
