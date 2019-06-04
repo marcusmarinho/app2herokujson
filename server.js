@@ -1,6 +1,6 @@
-const path = require('path');
-const express = require('express');
-const app = express();
+var path = require('path');
+var express = require('express');
+var app = express();
 
 // Serve static files
 app.use(express.static(__dirname + '/dist/app2heroku'));
@@ -13,6 +13,6 @@ app.get('/*', function(req, res) {
 // default Heroku port
 
 app.listen(process.env.PORT || 8080, function(){
-  console.log('Servidor On')
+  console.log('Servidor On');
 });
 
