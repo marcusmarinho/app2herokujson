@@ -9,5 +9,4 @@ export class Offer {
     public destaque: boolean,
     public imagens: Array<object>
     ) { }
-    
 }

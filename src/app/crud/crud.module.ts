@@ -20,11 +20,11 @@ import { CrudRoutingModule } from './crud.routing.module';
     CrudRoutingModule,
     ReactiveFormsModule
   ],
-  exports:[
+  exports: [
     ChangeOrderComponent,
     SearchOrderComponent,
   ],
-  providers:[
+  providers: [
     OfferService,
   ],
 })

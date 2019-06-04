@@ -6,19 +6,19 @@ import { WhereIsComponent } from './where-is/where-is.component';
 
 export const offerRoutes: Routes = [
 
-    { path: 'oferta/:id', component: OfferComponent, 
+    { path: 'oferta/:id', component: OfferComponent,
         children: [
             { path: 'como-usar', component: HowUseComponent },
             { path: 'onde-fica', component: WhereIsComponent }
         ]
      },
- ]
+ ];
 
 @NgModule({
-    imports:[
+    imports: [
         RouterModule.forChild(offerRoutes)
     ],
-    exports:[
+    exports: [
         RouterModule
     ]
 

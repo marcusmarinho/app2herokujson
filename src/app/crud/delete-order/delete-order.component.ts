@@ -28,23 +28,22 @@ export class DeleteOrderComponent implements OnInit {
 
   searchOrder() {
     this.offerService.searchPedido(this.deleteOrderForm.value.orderNumber)
-    .subscribe((res=> {
-      if(!res){
-        alert('pedido não encontrado');
-        this.ngOnInit();  
-      }
-      else {
-        this.controle = true; 
-        this.order = res;
-      }
-    }))
+      .subscribe((res => {
+        if (!res) {
+          alert('pedido não encontrado');
+          this.ngOnInit();
+        } else {
+          this.controle = true;
+          this.order = res;
+        }
+      }));
   }
 
   deleteOrder() {
     this.offerService.deleteOrder(this.deleteOrderForm.value.orderNumber)
-    .subscribe((res=>{
-      alert('Pedido Excluido');
-      this.ngOnInit(); 
-    }))
+      .subscribe((res => {
+        alert('Pedido Excluido');
+        this.ngOnInit();
+      }));
   }
 }

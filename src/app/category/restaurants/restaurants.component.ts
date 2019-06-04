@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 
 export class RestaurantsComponent implements OnInit {
 
-  offer$: Observable <Offer[]>;
+  offer$: Observable<Offer[]>;
 
   constructor(private offerService: OfferService) { }
 

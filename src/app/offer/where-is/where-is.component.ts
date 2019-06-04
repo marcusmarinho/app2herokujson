@@ -8,21 +8,21 @@ import { OfferService } from '../offer.service';
   styleUrls: ['./where-is.component.scss'],
   providers: [OfferService]
 })
+
 export class WhereIsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private ofertasService: OfferService) { }
 
-  public ondefica: string = '';
+  public ondefica;
 
   ngOnInit() {
 
     this.route.parent.params.subscribe((parametros: Params) => {
       this.ofertasService.getWhereIsOfferById(parametros.id)
         .subscribe((descricao: string) => {
-          this.ondefica = descricao
-        })
-    })
+          this.ondefica = descricao;
+        });
+    });
   }
-
 }

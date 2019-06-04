@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router'
+import { ActivatedRoute, Params } from '@angular/router';
+  // Import do modelo para que seja feito o databiding/interpolation
 
-//Import do modelo para que seja feito o databiding/interpolation 
-import { Offer } from '../shared/offer.model'
-
-import { CartService } from '../order-purchase/cart.service'
-import { OfferService } from './offer.service'
-
+import { Offer } from '../shared/offer.model';
+import { CartService } from '../order-purchase/cart.service';
+import { OfferService } from './offer.service';
 import { Observable } from 'rxjs';
-
 
 @Component({
   selector: 'app-offer',
@@ -19,30 +16,24 @@ import { Observable } from 'rxjs';
 
 export class OfferComponent implements OnInit {
 
-  public offer$: Observable<Offer>
+  public offer$: Observable<Offer>;
 
-  public offer: Offer
+  public offer: Offer;
 
   constructor(private route: ActivatedRoute,
               private offerService: OfferService,
               private carrinhoService: CartService) { }
 
   ngOnInit() {
-    
     this.route.params.subscribe((parametros: Params) => {
       this.offerService.getOfferById(parametros.id)
         .subscribe((oferta: Offer) => {
-          this.offer = oferta
-        })
-    })
-
+          this.offer = oferta;
+        });
+    });
   }
 
   public adicionarItemCarrinho(offer: Offer): void {
-
-    this.carrinhoService.incluirItem(this.offer)
- 
+    this.carrinhoService.incluirItem(this.offer);
   }
-
 }
-

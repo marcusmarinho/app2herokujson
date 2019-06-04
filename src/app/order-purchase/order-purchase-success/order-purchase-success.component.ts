@@ -7,12 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class OrderPurchaseSuccessComponent implements OnInit {
 
-  @Input() public idOrderPurchase:number
+  @Input() public idOrderPurchase: number;
 
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
 }

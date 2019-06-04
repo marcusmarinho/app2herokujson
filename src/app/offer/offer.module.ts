@@ -18,14 +18,15 @@ import { OfferRoutingModule } from './offer.routing.module';
     CommonModule,
     OfferRoutingModule
   ],
-  exports:[
+  exports: [
     OfferComponent,
     WhereIsComponent,
     HowUseComponent
   ],
-  providers:[
+  providers: [
     OfferService,
     CartService
   ],
 })
+
 export class OfferModule { }

@@ -11,17 +11,16 @@ export const crudRoutes: Routes = [
 
     { path: 'consulta-pedido', component: SearchOrderComponent },
     { path: 'altera-pedido', component: ChangeOrderComponent },
-    { path: 'deleta-pedido', component: DeleteOrderComponent}
- ]
+    { path: 'deleta-pedido', component: DeleteOrderComponent }
+ ];
 
 @NgModule({
-    imports:[
+    imports: [
         RouterModule.forChild(crudRoutes)
     ],
-    exports:[
+    exports: [
         RouterModule
     ]
-
 })
 
 export class CrudRoutingModule { }

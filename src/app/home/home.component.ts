@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OfferService } from '../offer/offer.service'
+import { OfferService } from '../offer/offer.service';
 import { Offer } from '../shared/offer.model';
 import { Observable } from 'rxjs';
 
@@ -13,11 +13,10 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   offer$: Observable<Offer[]>;
-  
+
   constructor(private offerService: OfferService) { }
 
   ngOnInit() {
- 
      this.offer$ = this.offerService.getOffer();
   }
 }

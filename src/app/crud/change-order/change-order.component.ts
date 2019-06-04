@@ -11,12 +11,12 @@ import { Order } from '../../shared/order.model';
 export class ChangeOrderComponent implements OnInit {
 
   public form: FormGroup = new FormGroup({
-    'numeroDoPedido': new FormControl(null, [Validators.required,Validators.minLength(1),Validators.maxLength(6)]),
-    'endereco': new FormControl({value:'',disabled: true}, [Validators.required, Validators.minLength(5), Validators.maxLength(40)]),
-    'complemento': new FormControl({value: '', disabled: true}),
-    'numero': new FormControl({value: '', disabled: true},[Validators.required, Validators.minLength(1), Validators.maxLength(6)]),
-    'formaDePagamento': new FormControl({disable: true}, [Validators.required])
-  })
+    'numeroDoPedido': new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(6)]),
+    'endereco': new FormControl({ value: '', disabled: true }, [Validators.required, Validators.minLength(5), Validators.maxLength(40)]),
+    'complemento': new FormControl({ value: '', disabled: true }),
+    'numero': new FormControl({ value: '', disabled: true }, [Validators.required, Validators.minLength(1), Validators.maxLength(6)]),
+    'formaDePagamento': new FormControl({ disable: true }, [Validators.required])
+  });
 
   controle: boolean;
 
@@ -24,29 +24,26 @@ export class ChangeOrderComponent implements OnInit {
 
   order: Order;
 
-  constructor(private ofertasService: OfferService,
-              ) { }
+  constructor(private ofertasService: OfferService) { }
 
   ngOnInit() {
     this.controle = true;
     this.controleValor = false;
     this.order = new Order;
-    this.form.markAsUntouched;
   }
 
   public efetuaConsulta() {
     if (this.form.get('numeroDoPedido').invalid) {
       this.form.get('numeroDoPedido').markAsTouched();
-    }
-    else {
+    } else {
       this.ofertasService.searchPedido(this.form.value.numeroDoPedido).subscribe(res => {
 
-        if (!res){
+        if (!res) {
           this.eraseForm();
           this.controle = false;
           this.controleValor = false;
           this.LockFields();
-          throw('Numero do Pedido não indentificado');
+          alert('Numero do Pedido não indentificado');
         }
         this.order = res;
         this.controle = true;
@@ -56,31 +53,30 @@ export class ChangeOrderComponent implements OnInit {
           complemento: this.order.complemento,
           numero: this.order.numero,
           formaDePagamento: this.order.formaPagamento
-        })
+        });
         this.unlockFields();
-      })
+      });
     }
   }
 
   public alterOrder(): void {
     if (this.form.status === 'INVALID') {
       this.form.get('numeroDoPedido').markAsTouched();
-    }
-    else{
+    } else {
       this.ofertasService.updateOrder(this.form.value.numeroDoPedido,
-      {
-        endereco: this.form.value.endereco,
-        numero: this.form.value.numero,
-        complemento: this.form.value.complemento,
-        formaPagamento: this.form.value.formaDePagamento,
-        itens: this.order.itens
-      } )
-      .subscribe(() => { 
-          alert('Alteração Efetuada com Sucesso!!')
+        {
+          endereco: this.form.value.endereco,
+          numero: this.form.value.numero,
+          complemento: this.form.value.complemento,
+          formaPagamento: this.form.value.formaDePagamento,
+          itens: this.order.itens
+        })
+        .subscribe(() => {
+          alert('Alteração Efetuada com Sucesso!!');
           this.ngOnInit();
           this.LockFields();
           this.eraseForm();
-      })
+        });
     }
   }
 
@@ -104,16 +100,16 @@ export class ChangeOrderComponent implements OnInit {
       complemento: '',
       numero: '',
       formaDePagamento: ''
-    })
+    });
   }
 
   public totalValueOrder(): number {
     // let [...itensPedido] = this.order.itens
-     let resultado: number = 0;
- 
-     this.order.itens.forEach(val => {
-       resultado += val.quantidade * val.valor;
-     })
-     return resultado;
-   }
+    let resultado: 0;
+
+    this.order.itens.forEach(val => {
+      resultado += val.quantidade * val.valor;
+    });
+    return resultado;
+  }
 }

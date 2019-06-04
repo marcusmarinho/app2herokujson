@@ -9,16 +9,15 @@ export const ROUTES: Routes = [
 
     { path: '', component: HomeComponent },
 
- ]
+ ];
 
 @NgModule({
-    imports:[
+    imports: [
         RouterModule.forRoot(ROUTES)
     ],
-    exports:[
+    exports: [
         RouterModule
     ]
-
 })
 
 export class AppRoutingModule { }

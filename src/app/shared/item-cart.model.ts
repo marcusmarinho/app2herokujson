@@ -8,4 +8,4 @@ class ItemCart {
         public quantidade: number) { }
 }
 
-export { ItemCart }
+export { ItemCart };

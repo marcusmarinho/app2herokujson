@@ -3,7 +3,7 @@ import { Order } from '../shared/order.model';
 import { Injectable } from '@angular/core';
 import { URL_API } from '../app.api';
 import { Observable } from 'rxjs';
-import { map, take } from "rxjs/operators";
+import { map, take } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
@@ -62,15 +62,15 @@ export class OfferService {
         return this.http.get(`${URL_API}/pedidos?id=${idDoPedido}`)
             .pipe(
                 take(1),
-                map((res) =>{
-                    return res[0];    
-                })     
-            )
+                map((res) => {
+                    return res[0];
+                })
+            );
     }
 
     public updateOrder(idDoPedido: number, data: Order): Observable<any> {
 
-        let headers: Headers = new Headers();
+        const headers: Headers = new Headers();
 
         headers.append('Content-type', 'application/json');
 
@@ -79,7 +79,7 @@ export class OfferService {
     }
 
     public deleteOrder(idDoPedido: number): Observable<any> {
-        let headers: Headers = new Headers();
+        const headers: Headers = new Headers();
 
         headers.append('Contet-type', 'application/json');
 

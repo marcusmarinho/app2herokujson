@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { FunComponent } from './fun/fun.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
-
 import { OfferService } from '../offer/offer.service';
-
 import { CategoryRoutingModule } from './category.routing.module';
 
 @NgModule({
@@ -17,12 +14,13 @@ import { CategoryRoutingModule } from './category.routing.module';
     CommonModule,
     CategoryRoutingModule
   ],
-  exports:[
+  exports: [
     FunComponent,
     RestaurantsComponent,
   ],
-  providers:[
+  providers: [
     OfferService,
   ],
 })
+
 export class CategoryModule { }

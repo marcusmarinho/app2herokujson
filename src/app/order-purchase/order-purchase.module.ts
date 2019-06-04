@@ -28,7 +28,4 @@ import { OrderPurchaseComponent } from '../order-purchase/order-purchase.compone
     ],
 })
 
-export class OrderPurchaseModule{
-
-
-}
+export class OrderPurchaseModule { }
