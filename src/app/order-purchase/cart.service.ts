@@ -5,12 +5,20 @@ import { Injectable } from '@angular/core';
 @Injectable()
 class CartService {
 
-    public itens: ItemCart[] = [];
+    public itens: ItemCart[];
+
+    constructor() {
+        this.itens = new Array<ItemCart>();
+    }
 
     public itemCarrinhoEncontrado: any;
 
     public exibirItens(): ItemCart[] {
-        return this.itens;
+        if (this.itens.length > 0) {
+            return this.itens;
+        } else {
+            return;
+        }
     }
 
     public incluirItem(offer: Offer): void {
@@ -76,4 +84,5 @@ class CartService {
         }
     }
 }
+
 export { CartService };

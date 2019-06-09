@@ -11,16 +11,12 @@ export class OrderPurchaseService {
     constructor(private http: HttpClient) { }
     public efetivarCompra(pedido: Order): Observable<any> {
 
-        const httpOptions = {
-            headers: new HttpHeaders({
-                'Content-type': 'application/json',
-            })
-        };
+        const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
         return this.http.post(
             `${URL_API}/pedidos`,
             JSON.stringify(pedido),
-            httpOptions
+            {headers}
         )
         .pipe(
             take(1),

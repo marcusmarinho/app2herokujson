@@ -8,10 +8,14 @@ import { ChangeOrderComponent } from './change-order/change-order.component';
 import { DeleteOrderComponent } from './delete-order/delete-order.component';
 
 export const crudRoutes: Routes = [
-
-    { path: 'consulta-pedido', component: SearchOrderComponent },
-    { path: 'altera-pedido', component: ChangeOrderComponent },
-    { path: 'deleta-pedido', component: DeleteOrderComponent }
+    {
+        path: '',
+        children: [
+            { path: 'consulta-pedido', component: SearchOrderComponent },
+            { path: 'altera-pedido', component: ChangeOrderComponent },
+            { path: 'deleta-pedido', component: DeleteOrderComponent }
+        ]
+    }
  ];
 
 @NgModule({

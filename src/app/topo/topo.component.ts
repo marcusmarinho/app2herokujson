@@ -13,13 +13,13 @@ import { CartService } from '../order-purchase/cart.service';
   selector: 'app-topo',
   templateUrl: './topo.component.html',
   styleUrls: ['./topo.component.css'],
-  providers: [OfferService]
+  providers: [OfferService, CartService]
 })
 
 export class TopoComponent implements OnInit {
 
   constructor(private offersService: OfferService,
-              public cartService: CartService) { }
+              private cartService: CartService) { }
 
   public offers;
 
@@ -49,6 +49,10 @@ export class TopoComponent implements OnInit {
 
   public limpaPesquisa(): void {
     this.subjectPesquisa.next('');
+  }
+
+  public getQtty() {
+    return this.cartService.getCartQt();
   }
 
 }

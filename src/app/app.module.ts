@@ -28,12 +28,8 @@ import { CrudModule } from './crud/crud.module';
     DescricaoReduzida,
   ],
   imports: [
-    OfferModule,
-    CategoryModule,
-    OrderPurchaseModule,
-    CrudModule,
     BrowserModule,
-    HttpClientModule ,
+    HttpClientModule,
     AppRoutingModule,
   ],
   providers: [ {  provide: LOCALE_ID, useValue: 'pt'} ],

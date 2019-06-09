@@ -7,7 +7,22 @@ import { HomeComponent } from '../home/home.component';
 
 export const ROUTES: Routes = [
 
-    { path: '', component: HomeComponent },
+    {
+        path: '',
+        component: HomeComponent,
+    },
+    {
+        path: 'category', loadChildren: '../category/category.module#CategoryModule'
+    },
+    {
+        path: 'crud', loadChildren: '../crud/crud.module#CrudModule'
+    },
+    {
+        path: 'offer', loadChildren: '../offer/offer.module#OfferModule'
+    },
+    {
+        path: 'order-purchase', loadChildren: '../order-purchase/order-purchase.module#OrderPurchaseModule'
+    }
 
  ];
 
