@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: "montserrat",sans-serif;
@@ -42,8 +42,6 @@
   .show-menu-btn:hover,
   .hide-menu-btn:hover{
     color: #3498db;
-   
-
   }
   
   #chk {
@@ -131,6 +129,7 @@
     width: 200px;
     margin-right: 25px;
     transition: all 0.5s ;
+    z-index: 3;
   }
 
   .menu span {

@@ -30,11 +30,11 @@ export class TopoComponent implements OnInit {
       .debounceTime(1000)
       .distinctUntilChanged()
       .switchMap((termo: string) => {
-        console.log('Requisicao http para api', termo);
 
         if (termo.trim() === '') {
           return Observable.of<Offer[]>([]);
         }
+
         return this.offersService.searchOffer(termo);
       })
       .catch((err: any) => {

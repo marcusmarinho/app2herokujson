@@ -20,9 +20,9 @@
         <div class="list-group">
           <ul>
             <li class="list-group-item" *ngFor="let oferta of offers | async">
-              <span [routerLink]="['/oferta', oferta.id]" (click)="limpaPesquisa()">
+              <p [routerLink]="['/oferta', oferta.id]" (click)="limpaPesquisa()">
                 {{ oferta.titulo | descricaoReduzida: 15:0 }}
-              </span>
+              </p>
             </li>
           </ul>
         </div>
