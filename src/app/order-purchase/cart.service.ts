@@ -1,8 +1,11 @@
 import { ItemCart } from '../shared/item-cart.model';
 import { Offer } from '../shared/offer.model';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
+
 class CartService {
 
     public itens: ItemCart[] = [];
@@ -14,7 +17,6 @@ class CartService {
     }
 
     public incluirItem(offer: Offer): void {
-
         const itemCarrinho: ItemCart = new ItemCart(
             offer.id,
             offer.imagens[0],
@@ -35,7 +37,8 @@ class CartService {
         }
     }
 
-    public getCartQt(): number {
+    public getCartQt(): Observable<number> {
+        console.log('CartService getCartQT()');
         let totalItens = null;
         this.itens.map((item: ItemCart) => {
             totalItens += item.quantidade;

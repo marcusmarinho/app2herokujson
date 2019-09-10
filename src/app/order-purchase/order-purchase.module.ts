@@ -22,10 +22,7 @@ import { OrderPurchaseComponent } from '../order-purchase/order-purchase.compone
         OrderPurchaseComponent,
         OrderPurchaseSuccessComponent
     ],
-    providers: [
-        CartService,
-        OrderPurchaseService
-    ],
+    providers: [],
 })
 
 export class OrderPurchaseModule { }

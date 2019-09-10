@@ -23,10 +23,7 @@ import { OfferRoutingModule } from './offer.routing.module';
     WhereIsComponent,
     HowUseComponent
   ],
-  providers: [
-    OfferService,
-    CartService
-  ],
+  providers: [],
 })
 
 export class OfferModule { }

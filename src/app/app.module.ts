@@ -12,12 +12,14 @@ import { HomeComponent } from './home/home.component';
 import { RodapeComponent } from './rodape/rodape.component';
 // PipeCustomizada
 import { DescricaoReduzida } from './util/descricao-reduzida.pipe';
-// Modules
-import { OfferModule } from './offer/offer.module';
-import { CategoryModule} from './category/category.module';
+
 import { AppRoutingModule } from './routing/app.routing.module';
-import { OrderPurchaseModule } from './order-purchase/order-purchase.module';
-import { CrudModule } from './crud/crud.module';
+import { CartService } from './order-purchase/cart.service';
+import { OfferService } from './offer/offer.service';
+import { OrderPurchaseService } from './order-purchase/order-purchase.service';
+import { SearchService } from './topo/search.service';
+import { CrudService } from './crud/crud.service';
+
 
 @NgModule({
     declarations: [
@@ -28,15 +30,13 @@ import { CrudModule } from './crud/crud.module';
     DescricaoReduzida,
   ],
   imports: [
-    OfferModule,
-    CategoryModule,
-    OrderPurchaseModule,
-    CrudModule,
     BrowserModule,
     HttpClientModule ,
     AppRoutingModule,
   ],
-  providers: [ {  provide: LOCALE_ID, useValue: 'pt'} ],
+  providers: [ {  provide: LOCALE_ID, useValue: 'pt'},
+                CartService, OfferService, OrderPurchaseService, SearchService, CrudService
+             ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

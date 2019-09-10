@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-restaurants',
   templateUrl: './restaurants.component.html',
-  styleUrls: ['./restaurants.component.scss'],
-  providers: [OfferService]
+  styleUrls: ['./restaurants.component.scss']
 })
 
 export class RestaurantsComponent implements OnInit {

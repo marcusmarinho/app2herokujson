@@ -4,7 +4,12 @@ import { RouterModule } from '@angular/router';
 import { OrderPurchaseComponent } from '../order-purchase/order-purchase.component';
 
 export const orderPurchaseRoutes: Routes = [
-    { path: 'ordem-compra', component: OrderPurchaseComponent }
+    {
+        path: '',
+        children: [
+            { path: 'ordem-compra', component: OrderPurchaseComponent }
+        ]
+    }
  ];
 
 @NgModule({

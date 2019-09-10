@@ -23,8 +23,7 @@ export class OrderPurchaseService {
             httpOptions
         )
         .pipe(
-            take(1),
-            map((resposta: any) => resposta.id)
+            take(1)
         );
     }
 }

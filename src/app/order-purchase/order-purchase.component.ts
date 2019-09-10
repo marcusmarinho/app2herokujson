@@ -9,7 +9,7 @@ import { ItemCart } from '../shared/item-cart.model';
   selector: 'app-order-purchase',
   templateUrl: './order-purchase.component.html',
   styleUrls: ['./order-purchase.component.scss'],
-  providers: [OrderPurchaseService]
+  
 })
 
 export class OrderPurchaseComponent implements OnInit {

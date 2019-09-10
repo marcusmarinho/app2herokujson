@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OfferService } from '../../offer/offer.service';
+import { CrudService } from '../crud.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Order } from '../../shared/order.model';
 
@@ -24,7 +24,7 @@ export class ChangeOrderComponent implements OnInit {
 
   order: Order;
 
-  constructor(private ofertasService: OfferService) { }
+  constructor(private crudService: CrudService) { }
 
   ngOnInit() {
     this.controle = true;
@@ -36,7 +36,7 @@ export class ChangeOrderComponent implements OnInit {
     if (this.form.get('numeroDoPedido').invalid) {
       this.form.get('numeroDoPedido').markAsTouched();
     } else {
-      this.ofertasService.searchPedido(this.form.value.numeroDoPedido).subscribe(res => {
+      this.crudService.searchOrder(this.form.value.numeroDoPedido).subscribe(res => {
 
         if (!res) {
           this.eraseForm();
@@ -63,7 +63,7 @@ export class ChangeOrderComponent implements OnInit {
     if (this.form.status === 'INVALID') {
       this.form.get('numeroDoPedido').markAsTouched();
     } else {
-      this.ofertasService.updateOrder(this.form.value.numeroDoPedido,
+      this.crudService.updateOrder(this.form.value.numeroDoPedido,
         {
           endereco: this.form.value.endereco,
           numero: this.form.value.numero,

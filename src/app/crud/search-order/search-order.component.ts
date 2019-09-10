@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Order } from '../../shared/order.model';
-import { OfferService } from '../../offer/offer.service';
+import { CrudService } from '../crud.service';
 
 @Component({
   selector: 'app-search-order',
@@ -25,7 +25,7 @@ export class SearchOrderComponent implements OnInit {
 
   public order: Order;
 
-  constructor(private ofertasService: OfferService) { }
+  constructor(private crudService: CrudService) { }
 
   ngOnInit() {
     this.controle = true;
@@ -37,7 +37,7 @@ export class SearchOrderComponent implements OnInit {
     if (this.consultaFormulario.status === 'INVALID') {
       this.consultaFormulario.get('numeroDoPedido').markAsTouched();
     } else {
-      this.ofertasService.searchPedido(this.consultaFormulario.value.numeroDoPedido).subscribe(res => {
+      this.crudService.searchOrder(this.consultaFormulario.value.numeroDoPedido).subscribe(res => {
         if (!res) {
           this.eraseForm();
           this.controle = false;

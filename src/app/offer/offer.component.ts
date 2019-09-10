@@ -5,20 +5,19 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Offer } from '../shared/offer.model';
 import { CartService } from '../order-purchase/cart.service';
 import { OfferService } from './offer.service';
-import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-offer',
   templateUrl: './offer.component.html',
-  styleUrls: ['./offer.component.scss'],
-  providers: [OfferService]
+  styleUrls: ['./offer.component.scss']
 })
 
 export class OfferComponent implements OnInit {
 
-  public offer$: Observable<Offer>;
-
   public offer: Offer;
+
+  private subjectQtItens: Subject<number> = new Subject<number>();
 
   constructor(private route: ActivatedRoute,
               private offerService: OfferService,

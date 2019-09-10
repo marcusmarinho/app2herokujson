@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OfferService } from '../offer/offer.service';
+import { SearchService } from './search.service';
 import { Offer } from '../shared/offer.model';
 import { Observable ,  Subject } from 'rxjs';
 import 'rxjs/add/operator/debounceTime';
@@ -13,13 +13,13 @@ import { CartService } from '../order-purchase/cart.service';
   selector: 'app-topo',
   templateUrl: './topo.component.html',
   styleUrls: ['./topo.component.css'],
-  providers: [OfferService]
+  providers: [],
 })
 
 export class TopoComponent implements OnInit {
 
-  constructor(private offersService: OfferService,
-              public cartService: CartService) { }
+  constructor(private searchService: SearchService ,
+              public cartService: CartService ) { }
 
   public offers;
 
@@ -35,7 +35,7 @@ export class TopoComponent implements OnInit {
           return Observable.of<Offer[]>([]);
         }
 
-        return this.offersService.searchOffer(termo);
+        return this.searchService.searchOffer(termo);
       })
       .catch((err: any) => {
         console.log(err);

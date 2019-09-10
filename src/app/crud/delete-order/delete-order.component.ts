@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OfferService } from '../../offer/offer.service';
+import { CrudService } from '../crud.service';
 import { Order } from '../../shared/order.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -14,7 +14,7 @@ export class DeleteOrderComponent implements OnInit {
     'orderNumber': new FormControl(null, [Validators.required])
   });
 
-  constructor(private offerService: OfferService) { }
+  constructor(private crudService: CrudService) { }
 
   public order: Order;
 
@@ -27,7 +27,7 @@ export class DeleteOrderComponent implements OnInit {
 
 
   searchOrder() {
-    this.offerService.searchPedido(this.deleteOrderForm.value.orderNumber)
+    this.crudService.searchOrder(this.deleteOrderForm.value.orderNumber)
       .subscribe((res => {
         if (!res) {
           alert('pedido não encontrado');
@@ -40,7 +40,7 @@ export class DeleteOrderComponent implements OnInit {
   }
 
   deleteOrder() {
-    this.offerService.deleteOrder(this.deleteOrderForm.value.orderNumber)
+    this.crudService.deleteOrder(this.deleteOrderForm.value.orderNumber)
       .subscribe((res => {
         alert('Pedido Excluido');
         this.ngOnInit();

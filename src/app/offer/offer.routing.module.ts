@@ -5,13 +5,17 @@ import { HowUseComponent } from './how-use/how-use.component';
 import { WhereIsComponent } from './where-is/where-is.component';
 
 export const offerRoutes: Routes = [
-
-    { path: 'oferta/:id', component: OfferComponent,
+    {
+        path: '',
         children: [
-            { path: 'como-usar', component: HowUseComponent },
-            { path: 'onde-fica', component: WhereIsComponent }
+            { path: 'oferta/:id', component: OfferComponent,
+                children: [
+                    { path: 'como-usar', component: HowUseComponent },
+                    { path: 'onde-fica', component: WhereIsComponent }
+                ]
+            }
         ]
-     },
+    }
  ];
 
 @NgModule({
