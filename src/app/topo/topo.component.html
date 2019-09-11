@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 </head>
 <body>
-  
+
   <div class="header">
     <input type="checkbox" id="chk">
     <label for="chk" class="show-menu-btn">
@@ -16,7 +16,7 @@
     </label>
 
     <div class="search-area">
-      <input type="search" #termoDaPesquisa (keyup)="search(termoDaPesquisa.value)"/>
+      <input type="search" #termoDaPesquisa (input)="search(termoDaPesquisa.value)"/>
         <div class="list-group">
           <ul>
             <li class="list-group-item" *ngFor="let oferta of offers | async">
