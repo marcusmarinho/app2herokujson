@@ -8,6 +8,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
 import { CartService } from '../order-purchase/cart.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-topo',
@@ -22,6 +23,7 @@ export class TopoComponent implements OnInit {
               public cartService: CartService ) { }
 
   public offers;
+  public counter = 0;
 
   private subjectPesquisa: Subject<string> = new Subject<string>();
   ngOnInit() {
@@ -49,6 +51,10 @@ export class TopoComponent implements OnInit {
 
   public limpaPesquisa(): void {
     this.subjectPesquisa.next('');
+  }
+
+  getCartQtItens() {
+    return this.cartService.getCartQt().pipe(take(1));
   }
 
 }

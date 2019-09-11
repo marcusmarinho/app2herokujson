@@ -14,11 +14,10 @@ import { ItemCart } from '../shared/item-cart.model';
 
 export class OrderPurchaseComponent implements OnInit {
 
-  public idOrderPurchase: number = undefined;
+  public idOrderPurchase: number;
   public itensCart: ItemCart[] = [];
   public alteraQuantidade: boolean;
 
-    // Funciona como um controlador que sera inserido no nosso formulario
   public formulario: FormGroup = new FormGroup({
     'endereco': new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(40)]),
     'numero': new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(6)]),
@@ -52,19 +51,16 @@ export class OrderPurchaseComponent implements OnInit {
           this.formulario.value.numero,
           this.formulario.value.complemento,
           this.formulario.value.formaPagamento,
-          // passa para nossa api rest os itens comprados
           this.cartService.exibirItens()
         );
 
         this.orderPurchaseService.efetivarCompra(order)
 
-          .subscribe((idOrder: number) => {
-            this.idOrderPurchase = idOrder;
-
-            if (!this.idOrderPurchase) {
-              alert('Bad Error');
-            }
-          });
+          .subscribe((idOrder) => {
+            this.idOrderPurchase = idOrder.id;
+          }, err => {
+            console.log(err);
+        });
       }
       this.updateCart();
     }

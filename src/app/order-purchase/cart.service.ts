@@ -38,7 +38,6 @@ class CartService {
     }
 
     public getCartQt(): Observable<number> {
-        console.log('CartService getCartQT()');
         let totalItens = null;
         this.itens.map((item: ItemCart) => {
             totalItens += item.quantidade;

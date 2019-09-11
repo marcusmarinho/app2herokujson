@@ -1,40 +1,28 @@
-<!doctype html>
-<html lang="pt-br">
+<div class="container">
+  <div class="secao">
+    <h3 class="text-center">Destaques do dia!</h3>
+    <h5 class="text-center">Aproveite as super ofertas que separamos para você:</h5>
+  </div>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-</head>
+  <hr />
 
-<body>
-  <div class="container">
-    <div class="secao">
-      <h3 class="text-center">Destaques do dia!</h3>
-      <h5 class="text-center">Aproveite as super ofertas que separamos para você:</h5>
-    </div>
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let oferta of offer$ | async">
+      <div class="card">
+        <img class="card-img-top" [src]="oferta.imagens[0].url">
+        <div class="card-block">
+          <h4 class="card-title">{{ oferta.titulo }}</h4>
+          <p class="card-text">{{ oferta.descricao_oferta | descricaoReduzida: 40}}</p>
 
-    <hr />
+          <p class="preco">{{ oferta.valor | currency: 'BRL':code }}</p>
 
-    <div class="row">
-      <div class="col-sm-4" *ngFor="let oferta of offer$ | async">
-        <div class="card" style="align-content: flex-start">
-          <img class="card-img-top" [src]="oferta.imagens[0].url">
-          <div class="card-block">
-            <h4 class="card-title">{{ oferta.titulo }}</h4>
-            <p class="card-text">{{ oferta.descricao_oferta | descricaoReduzida: 40}}</p>
-
-            <p class="preco">{{ oferta.valor | currency: 'BRL':code }}</p>
-
-            <a [routerLink]="[ 'offer/oferta', oferta.id ]" class="btn btn-outline-primary">Ver oferta
-            </a>
-          </div>
+          <a [routerLink]="[ 'offer/oferta', oferta.id ]" class="btn btn-outline-primary">Ver oferta
+          </a>
         </div>
-        <br>
       </div>
       <br>
     </div>
-    <hr />
+    <br>
   </div>
-</body>
-
-</html>
+  <hr />
+</div>

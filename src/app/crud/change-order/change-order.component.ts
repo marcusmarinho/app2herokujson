@@ -15,7 +15,7 @@ export class ChangeOrderComponent implements OnInit {
     'endereco': new FormControl({ value: '', disabled: true }, [Validators.required, Validators.minLength(5), Validators.maxLength(40)]),
     'complemento': new FormControl({ value: '', disabled: true }),
     'numero': new FormControl({ value: '', disabled: true }, [Validators.required, Validators.minLength(1), Validators.maxLength(6)]),
-    'formaDePagamento': new FormControl({ disable: true }, [Validators.required])
+    'formaDePagamento': new FormControl({ value: '', disabled: true }, [Validators.required])
   });
 
   controle: boolean;
