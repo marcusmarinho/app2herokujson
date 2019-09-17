@@ -20,6 +20,10 @@ import { OrderPurchaseService } from './order-purchase/order-purchase.service';
 import { SearchService } from './topo/search.service';
 import { CrudService } from './crud/crud.service';
 
+// Angular Material
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
     declarations: [
@@ -31,8 +35,11 @@ import { CrudService } from './crud/crud.service';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule ,
+    HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [ {  provide: LOCALE_ID, useValue: 'pt'},
                 CartService, OfferService, OrderPurchaseService, SearchService, CrudService

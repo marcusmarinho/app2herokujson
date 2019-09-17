@@ -1,28 +1,26 @@
+
 <div class="container">
   <div class="secao">
-    <h3 class="text-center">Destaques do dia!</h3>
-    <h5 class="text-center">Aproveite as super ofertas que separamos para você:</h5>
-  </div>
-
-  <hr />
-
-  <div class="row">
-    <div class="col-sm-4" *ngFor="let oferta of offer$ | async">
-      <div class="card">
-        <img class="card-img-top" [src]="oferta.imagens[0].url">
-        <div class="card-block">
-          <h4 class="card-title">{{ oferta.titulo }}</h4>
-          <p class="card-text">{{ oferta.descricao_oferta | descricaoReduzida: 40}}</p>
-
-          <p class="preco">{{ oferta.valor | currency: 'BRL':code }}</p>
-
-          <a [routerLink]="[ 'offer/oferta', oferta.id ]" class="btn btn-outline-primary">Ver oferta
-          </a>
-        </div>
+        <h1>Aproveite as super ofertas que separamos para você:</h1>
+        <p>Destaques do dia!</p>
       </div>
-      <br>
+  <div class="flex-container">
+  
+    <div class="card" *ngFor="let oferta of offer$ | async" >
+        <mat-card class="material-card">
+            <mat-card-header>
+              
+              <mat-card-title class="card-title">{{ oferta.titulo }}</mat-card-title>
+          
+            </mat-card-header>
+            <img mat-card-image [src]="oferta.imagens[0].url" alt="Imagem Oferta">
+            <mat-card-content class="card-description">
+              <p>{{oferta.descricao_oferta | descricaoReduzida: 40}}</p>
+            </mat-card-content>
+            <mat-card-actions class="card-button">
+                <button mat-button [routerLink]="[ 'offer/oferta', oferta.id ]">Ver oferta</button>
+            </mat-card-actions>
+          </mat-card>
     </div>
-    <br>
   </div>
-  <hr />
 </div>

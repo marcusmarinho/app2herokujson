@@ -1,23 +1,41 @@
-$base-invalid-color: red;
-$base-valid-color:green;
-
-.pesquisa-compra{
-    margin-top: 70px;
-    margin-bottom: 60px;
+.secao {
+    width: 100%;
+    text-align: center;
 }
 
-input.ng-invalid.ng-touched {
-    border: 1px solid $base-invalid-color;
+.flex-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    h1 {
+        text-align: left;
+    }
+
+    form {
+        padding: 30px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        border-radius: 4px;
+    }
+
+    .flex-item-card {
+        margin-left: 10px;
+
+        .material-card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+    }
+
+    .flex-item-info {
+        max-width: 400px;
+    }
 }
 
-select.ng-invalid.ng-touched {
-    border: 1px solid $base-invalid-color;
-}
-
-input.ng-valid.ng-touched {
-    border: 1px solid $base-valid-color;
-}
-
-select.ng-valid.ng-touched {
-    border: 1px solid $base-valid-color;
+@media screen and (max-width: 576px) {
+    .flex-form {
+        .flex-item-card {
+            margin-top: 10px;
+            margin-left: 0px;
+        }
+    }
 }

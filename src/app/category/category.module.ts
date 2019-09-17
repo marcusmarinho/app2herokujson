@@ -4,6 +4,9 @@ import { FunComponent } from './fun/fun.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { CategoryRoutingModule } from './category.routing.module';
 
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+
 @NgModule({
   declarations: [
     FunComponent,
@@ -11,7 +14,9 @@ import { CategoryRoutingModule } from './category.routing.module';
   ],
   imports: [
     CommonModule,
-    CategoryRoutingModule
+    CategoryRoutingModule,
+    MatCardModule,
+    MatButtonModule
   ],
   exports: [
     FunComponent,

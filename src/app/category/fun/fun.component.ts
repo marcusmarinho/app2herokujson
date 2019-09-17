@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   templateUrl: './fun.component.html',
   styleUrls: ['./fun.component.scss']
 })
+
 export class FunComponent implements OnInit {
 
   offer$: Observable<Offer[]>;

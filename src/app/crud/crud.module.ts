@@ -8,6 +8,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CrudRoutingModule } from './crud.routing.module';
 import { CrudService } from './crud.service';
 
+import { MatInputModule } from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+
 @NgModule({
   declarations: [
     ChangeOrderComponent,
@@ -17,7 +21,11 @@ import { CrudService } from './crud.service';
   imports: [
     CommonModule,
     CrudRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule
+
   ],
   exports: [
     ChangeOrderComponent,

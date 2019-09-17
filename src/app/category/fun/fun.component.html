@@ -1,43 +1,31 @@
 <div class="container">
   <div class="secao">
-    <h3 class="text-center">Cinema, viagens, diversão muito e mais!</h3>
-    <h5 class="text-center">Conheça as melhores ofertas para você se divertir quando quiser:</h5>
+    <h1>Cinema, viagens, diversão muito e mais!</h1>
+    <p>Conheça as melhores ofertas para você se divertir quando quiser:</p>
   </div>
+  <div class="flex-container">
 
-  <hr />
+    <div class="card" *ngFor='let oferta of offer$ | async'>
+      <mat-card class="material-card">
+        <mat-card-header>
 
-  <div *ngFor='let oferta of offer$ | async'>
-    <div class="row">
-      <div class="col-md-4">
-        <img [src]="oferta.imagens[0].url" class="img-fluid" />
-        <hr />
-      </div>
+          <mat-card-title class="card-title">{{ oferta.titulo }}</mat-card-title>
 
-      <div class="col-md-8">
-        <div class="row">
-          <h4>{{ oferta.titulo }}</h4>
-        </div>
+        </mat-card-header>
+        <img mat-card-image [src]="oferta.imagens[0].url" alt="Imagem Oferta">
+        <mat-card-content class="card-description">
+          <p>{{ oferta.descricao_oferta }}</p>
+          <p>Anunciado por: {{oferta.anunciante}}</p>
+        </mat-card-content>
 
-        <div class="row">
-          <h5>{{ oferta.descricao_oferta }}</h5>
-        </div>
+        <mat-card-content class="card-price">
+          <p>{{ oferta.valor | currency: 'BRL':code }}</p>
+        </mat-card-content>
 
-        <div class="row">
-          <p>Anunciado por:
-            <b>{{ oferta.anunciante }}</b>
-          </p>
-        </div>
-
-        <div class="row">
-          <p> {{ oferta.valor | currency: 'BRL':code }} </p>
-        </div>
-
-        <div class="row">
-          <button class="btn btn-outline-success" [routerLink]="['/offer/oferta' , oferta.id]">Ver oferta</button>
-        </div>
-        <hr />
-      </div>
+        <mat-card-actions class="card-button">
+          <button mat-button [routerLink]="['/offer/oferta' , oferta.id]">Ver oferta</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
   </div>
-  <br />
 </div>
