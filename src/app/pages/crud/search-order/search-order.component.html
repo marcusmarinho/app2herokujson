@@ -55,8 +55,8 @@
           <mat-card-content class="card-description">
             <p>{{ item.descricao_oferta }}</p>
             <p>Quantidade: {{ item.quantidade }}</p>
-            <p>{{ item.quantidade * item.valor | currency: 'BRL': code }}</p>
-            <p>{{ totalPedido() | currency: 'BRL': code }}</p>
+            <p>{{ item.quantidade * item.valor | currency: 'BRL' }}</p>
+            <p>{{ totalPedido() | currency:'BRL':true}}</p>
           </mat-card-content>
         </mat-card>
       </div>

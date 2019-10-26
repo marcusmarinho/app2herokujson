@@ -38,7 +38,7 @@
         {{ item.descricao_oferta }}
       </div>
 
-      <div class="row" *ngIf="controleError">
+      <div class="row" >
         <div class="col">
           <br />
           Quantidade: {{ item.quantidade }}
@@ -47,13 +47,13 @@
 
       <div class="form-group col-sm-3 d-flex justify-content-end" *ngIf="controle">
         <br />
-        {{ item.quantidade * item.valor | currency: 'BRL': code }}
+        {{ item.quantidade * item.valor | currency: 'BRL'}}
       </div>
 
     </div>
 
     <div class="form-group col d-flex justify-content-end" *ngIf="controleValor">
-      <h4> {{ totalValueOrder() | currency: 'BRL': code }}</h4>
+      <h4> {{ totalValueOrder() | currency:'BRL':true }}</h4>
     </div>
 
     <div class="form-row">

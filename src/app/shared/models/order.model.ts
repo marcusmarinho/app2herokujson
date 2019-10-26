@@ -9,3 +9,5 @@ export class Order {
         public itens: Array<ItemCart> = [],
     ) {}
 }
+
+// order.itens[0].img.url

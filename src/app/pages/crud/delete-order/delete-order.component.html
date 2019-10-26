@@ -17,7 +17,7 @@
       <label>{{order.numero}}</label>
     </ng-template>
 
-    <div class="area-image">
+    <div class="area-image" *ngIf="order !== undefined">
       <ng-template [ngIf]="controle">
         <img [src]="order.itens[0].img.url" class="img-fluid">
       </ng-template>

@@ -29,7 +29,7 @@
         </div>
 
         <div class="form-group col-sm-3 d-flex justify-content-end">
-          {{ item.quantidade * item.valor | currency: 'BRL': code }}
+          {{ item.quantidade * item.valor | currency:'BRL':true }}
         </div>
       </div>
 
@@ -42,7 +42,7 @@
 
         <ng-template #fullCartMsg>
           <div class="form-group col d-flex justify-content-end">
-            <h4>Total Pedido: {{ cartService.totalCarrinhoCompras() | currency: 'BRL': code }}</h4>
+            <h4>Total Pedido: {{ cartService.totalCarrinhoCompras() | currency:'BRL':true }}</h4>
           </div>
         </ng-template>
       </div>

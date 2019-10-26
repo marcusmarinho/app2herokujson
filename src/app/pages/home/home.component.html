@@ -15,7 +15,7 @@
             </mat-card-header>
             <img mat-card-image [src]="oferta.imagens[0].url" alt="Imagem Oferta">
             <mat-card-content class="card-description">
-              <p>{{oferta.descricao_oferta | descricaoReduzida: 40}}</p>
+              <p>{{oferta.descricao_oferta}}</p>
             </mat-card-content>
             <mat-card-actions class="card-button">
                 <button mat-button [routerLink]="[ 'offer/oferta', oferta.id ]">Ver oferta</button>

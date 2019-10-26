@@ -29,7 +29,7 @@ export class OfferComponent implements OnInit {
     });
   }
 
-  public adicionarItemCarrinho(offer: Offer): void {
+  public adicionarItemCarrinho(): void {
     this.carrinhoService.incluirItem(this.offer);
   }
 }
