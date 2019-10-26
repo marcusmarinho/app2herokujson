@@ -1,0 +1,37 @@
+
+
+
+  <div class="header">
+   
+    <!--
+    <input type="checkbox" id="chk">
+
+    <div class="search-area">
+      <input type="search" #termoDaPesquisa (input)="search(termoDaPesquisa.value)"/>
+        <div class="list-group">
+          <ul>
+            <li class="list-group-item" *ngFor="let oferta of offers | async">
+              <p [routerLink]="['offer/oferta', oferta.id]" (click)="limpaPesquisa()">
+                {{ oferta.titulo | descricaoReduzida: 15:0 }}
+              </p>
+            </li>
+          </ul>
+        </div>
+        <i class="fa fa-search"></i>
+    </div>
+    -->
+    
+    <ul class="menu">
+      <a class="menulink" routerLinkActive="active" routerLink="">Home</a>
+      <a class="menulink" routerLinkActive="active" routerLink="categoria/restaurantes">Restaurantes</a>
+      <a class="menulink" routerLinkActive="active" routerLink="categoria/diversao">Diversão</a>
+      <a class="menulink" routerLinkActive="active" routerLink="crud/consulta-pedido">Consultar Pedido</a>
+      <a class="menulink" routerLinkActive="active" routerLink="crud/altera-pedido">Alterar Pedido</a>
+      <a class="menulink" routerLinkActive="active" routerLink="crud/deleta-pedido">Deletar Pedido</a>
+      <a><img src="../../assets/cart.png" routerLinkActive="active" routerLink="order-purchase/ordem-compra"><span >{{this.cartService.getCartQt()}}</span></a>
+      <label for="chk" class="hide-menu-btn">
+        <i class="fas fa-times"></i>
+      </label>
+    </ul>
+
+  </div>

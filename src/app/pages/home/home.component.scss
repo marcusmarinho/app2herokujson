@@ -1,0 +1,49 @@
+.secao {
+  width: 100%;
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .card {
+    margin: 10px;
+    .material-card {
+      background: #FEF9C7;
+      width: 400px;
+      height: 400px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+
+      .card-description {
+        font-size: 1em;
+      }
+      .card-button {
+        text-align: center;
+      }
+    }
+
+    .material-card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      transform: translateY(4px);
+      background: #FCE181;
+    }
+  }
+}
+
+@media screen and (max-width: 943px) {
+
+  h1, h2 {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+  .flex-container {
+    .card {
+      .material-card {
+        width: 300px;
+        height: 350px;
+      }
+    }
+  }
+}

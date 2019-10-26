@@ -1,0 +1,79 @@
+h1, h2 {
+  text-align: center;
+}
+
+h2 {
+  margin: 10px;
+}
+
+.secao {
+  width: 100%;
+  text-align: center;
+}
+
+.secao-danger {
+  width: 100%;
+  text-align: center;
+  color: red;
+}
+
+.input-width {
+  text-align: center;
+  width: 200px;
+}
+
+.flex-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  form {
+    width: 430px;
+    padding: 16px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+
+  .flex-item-card {
+    margin-left: 10px;
+
+    .material-card {
+      width: 430px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+@media screen and (max-width: 973px) {
+  .flex-form {
+
+    .flex-item-card {
+      .material-card {
+        margin-right: 8px;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .flex-form {
+    form {
+      width: 300px;
+    }
+
+    .flex-item-card {
+      .material-card {
+        width: 300px;
+        margin-right: 8px;
+        margin-top: 10px;
+      }
+    }
+  }
+}
