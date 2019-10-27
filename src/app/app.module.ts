@@ -23,10 +23,12 @@ import { CrudService } from '../app/shared/services/crud.service';
 
 // Angular Material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
     declarations: [
     AppComponent,
@@ -41,7 +43,10 @@ import {MatButtonModule} from '@angular/material/button';
     AppRoutingModule,
     MatCardModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    MatMenuModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [ {  provide: LOCALE_ID, useValue: 'pt'},
                 CartService, OfferService, OrderPurchaseService, SearchService, CrudService
