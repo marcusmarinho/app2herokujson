@@ -1,26 +1,31 @@
 .navbar {
-    padding: 50px;
+    padding: 30px;
     text-align: center;
     button {
         font-size: 1em;
     }
 }
 
-
 .navmobol {
     display: none;
 }
 
 @media screen and (max-width: 616px) {
+
+    .mat-menu-item {
+        background: #FEF9C7 !important;
+    }
+
     .navbar {
         display: none;
     }
 
     .navmobol {
-        float: right;
-        display: block;
-        position: relative;
-        left: 10px;
- 
+        mat-icon{
+            font-size: 50px;
+        }
+    
+        display: flex;
+        justify-content: flex-end;
     }
 }

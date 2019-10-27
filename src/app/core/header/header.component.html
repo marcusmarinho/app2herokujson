@@ -1,3 +1,4 @@
+
 <nav class="navbar">
 
     <button mat-button routerLinkActive="active" routerLink="">Home</button>
@@ -15,17 +16,11 @@
 </nav>
 
 
-
-
-
-
-
-
 <nav class="navmobol">
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         <mat-icon class="navmobol">list</mat-icon>
       </button>
-      <mat-menu #menu="matMenu" style="width: 100%;">
+      <mat-menu #menu="matMenu" class="menu">
         <button mat-menu-item>
           <mat-icon>local_dining</mat-icon>
           <span class="menulink" routerLinkActive="active" routerLink="categoria/restaurantes">Restaurantes</span>
