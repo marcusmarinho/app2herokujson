@@ -6,6 +6,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,500i&display=swap');
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '../src//app/shared//utils//color';
+
 html, body, div, span, applet, object, iframe,
 h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -29,10 +31,12 @@ time, mark, audio, video {
 h1 {
 	font-weight: 500;
 	font-size: 2.5em;
+	margin: 0;
 }
 h2 {
 	font-weight: 500;
 	font-size: 2em;
+	margin: 0;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -42,7 +46,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	font-family: 'Roboto', sans-serif;
-	background: #FEF9C7;
+	background: $bodyBackground;
 }
 ol, ul {
 	list-style: none;
@@ -62,7 +66,3 @@ table {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.mat-menu-content:not {
-	padding: 30px;
-}

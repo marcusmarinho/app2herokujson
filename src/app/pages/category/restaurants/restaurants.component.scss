@@ -1,3 +1,5 @@
+@import '../../../shared/utils/color';
+
 .secao {
     width: 100%;
     text-align: center;
@@ -10,7 +12,7 @@
     .card {
         margin: 10px;
         .material-card {
-            background: #FEF9C7;
+            background: $cardBackground;
             max-width: 400px;
             max-height: 450px;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -27,7 +29,7 @@
         .material-card:hover {
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
             transform: translateY(4px);
-            background: #FCE181;
+            background: $cardHover;
         } 
     }
 }
