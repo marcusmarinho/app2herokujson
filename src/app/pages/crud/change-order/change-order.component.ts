@@ -11,7 +11,6 @@ import { Order } from '../../../shared/models/order.model';
 export class ChangeOrderComponent implements OnInit {
 
   public form: FormGroup = new FormGroup({
-    'numeroDoPedido': new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(6)]),
     'endereco': new FormControl({ value: '', disabled: true }, [Validators.required, Validators.minLength(5), Validators.maxLength(40)]),
     'complemento': new FormControl({ value: '', disabled: true }),
     'numero': new FormControl({ value: '', disabled: true }, [Validators.required, Validators.minLength(1), Validators.maxLength(6)]),
@@ -20,34 +19,32 @@ export class ChangeOrderComponent implements OnInit {
 
   controle: boolean;
 
-  controleValor: boolean;
-
   order: Order;
+
+  numPedido = new FormControl();
+
 
   constructor(private crudService: CrudService) { }
 
+
   ngOnInit() {
-    this.controle = true;
-    this.controleValor = false;
-    this.order = new Order;
+    this.controle = false;
+    this.order = new Order();
   }
 
   public efetuaConsulta() {
-    if (this.form.get('numeroDoPedido').invalid) {
-      this.form.get('numeroDoPedido').markAsTouched();
-    } else {
-      this.crudService.searchOrder(this.form.value.numeroDoPedido).subscribe(res => {
+
+
+      this.crudService.searchOrder(this.numPedido.value).subscribe(res => {
 
         if (!res) {
-          this.eraseForm();
           this.controle = false;
-          this.controleValor = false;
+        
           this.LockFields();
-          alert('Numero do Pedido não indentificado');
         }
         this.order = res;
         this.controle = true;
-        this.controleValor = true;
+     
         this.form.patchValue({
           endereco: this.order.endereco,
           complemento: this.order.complemento,
@@ -57,13 +54,13 @@ export class ChangeOrderComponent implements OnInit {
         this.unlockFields();
       });
     }
-  }
+
 
   public alterOrder(): void {
     if (this.form.status === 'INVALID') {
       this.form.get('numeroDoPedido').markAsTouched();
     } else {
-      this.crudService.updateOrder(this.form.value.numeroDoPedido,
+      this.crudService.updateOrder(this.numPedido.value,
         {
           endereco: this.form.value.endereco,
           numero: this.form.value.numero,
@@ -81,6 +78,7 @@ export class ChangeOrderComponent implements OnInit {
   }
 
   public unlockFields(): void {
+    this.numPedido.disable();
     this.form.controls['endereco'].enable();
     this.form.controls['complemento'].enable();
     this.form.controls['numero'].enable();
@@ -88,6 +86,7 @@ export class ChangeOrderComponent implements OnInit {
   }
 
   public LockFields(): void {
+    this.numPedido.enable();
     this.form.controls['endereco'].disable();
     this.form.controls['complemento'].disable();
     this.form.controls['numero'].disable();
@@ -104,7 +103,7 @@ export class ChangeOrderComponent implements OnInit {
   }
 
   public totalValueOrder(): number {
-    // let [...itensPedido] = this.order.itens
+  
     let resultado: 0;
 
     this.order.itens.forEach(val => {

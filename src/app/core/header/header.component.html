@@ -13,6 +13,11 @@
 
     <button mat-button routerLinkActive="active" routerLink="crud/deleta-pedido">Excluir Pedido</button>
 
+    <button mat-button routerLinkActive="active" routerLink="order-purchase/ordem-compra">
+      <span class="badge badge-info">{{this.cartService.getCartQt()}}</span> <mat-icon>add_shopping_cart</mat-icon></button>
+   
+
+
 </nav>
 
 
@@ -46,7 +51,9 @@
       
           <button mat-menu-item>
               <mat-icon>add_shopping_cart</mat-icon>
-              <span class="menulink" routerLinkActive="active" routerLink="order-purchase/ordem-compra">Meu Carrinho</span>
+              <span class="menulink" routerLinkActive="active" routerLink="order-purchase/ordem-compra">
+                <span class="badge badge-info">{{this.cartService.getCartQt()}}</span>
+                Meu Carrinho</span>
           </button>
       </mat-menu>
 </nav>

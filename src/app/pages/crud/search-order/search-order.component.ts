@@ -32,11 +32,11 @@ export class SearchOrderComponent implements OnInit {
   ngOnInit() {
     this.controle = true;
     this.controleValor = false;
-    this.order = new Order;
+    this.order = new Order();
   }
 
   public efetuaConsulta() {
-    
+
       this.crudService.searchOrder(this.numPedido.value).subscribe(res => {
         if (!res) {
           this.eraseForm();
@@ -53,7 +53,7 @@ export class SearchOrderComponent implements OnInit {
           formaDePagamento: this.order.formaPagamento
         });
       });
-    
+
   }
 
   public totalPedido(): number {

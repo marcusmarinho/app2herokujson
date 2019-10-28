@@ -1,27 +1,88 @@
-$base-invalid-color: red;
-$base-valid-color:green;
+h1, h2 {
+    text-align: center;
+  }
+  
+  h2 {
+    margin: 10px;
+  }
+  
+  .secao {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .secao-danger {
+    width: 100%;
+    text-align: center;
+    color: red;
+  }
+  
+  .input-width {
+    text-align: center;
+    width: 200px;
+  }
+  
+  .flex-search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .flex-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+    form {
+      width: 430px;
+      height: 350px;
+      padding: 16px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
 
-.pesquisa-compra{
-    margin-top: 70px;
-    margin-bottom: 60px;
-}
+      .teste {
+          width: 100%;
+      }
 
-input.ng-invalid.ng-touched {
-    border: 1px solid $base-invalid-color;
-}
+    }
+  
+    .flex-item-card {
+      margin-left: 10px;
+  
+      .material-card {
+        width:430px;
 
-select.ng-invalid.ng-touched {
-    border: 1px solid $base-invalid-color;
-}
-
-input.ng-valid.ng-touched {
-    border: 1px solid $base-valid-color;
-}
-
-select.ng-valid.ng-touched {
-    border: 1px solid $base-valid-color;
-}
-
-button{
-    background-color: rgb(134, 160, 230);
-}
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+  
+  @media screen and (max-width: 973px) {
+    .flex-form {
+  
+      .flex-item-card {
+        .material-card {
+          margin-right: 8px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .flex-form {
+      form {
+        width: 300px;
+        height: 450px;
+      }
+  
+      .flex-item-card {
+        .material-card {
+          width: 300px;
+          margin-right: 8px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  

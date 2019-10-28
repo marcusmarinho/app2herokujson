@@ -1,125 +1,68 @@
-<div class="pesquisa-compra">
-  <form [formGroup]="form" novalidate (ngSubmit)=efetuaConsulta()>
+<div class="container">
 
-    <ng-template [ngIf]="controle" [ngIfElse]="errorHandle">
-      <h5>Informe o ID do Pedido</h5>
-      <hr />
-    </ng-template>
+  <ng-template [ngIf]="order !== undefined" [ngIfElse]="errorHandle">
+    <h1 class="secao">Alterar Pedido</h1>
+  </ng-template>
 
-    <ng-template #errorHandle>
-      <h5>Pedido não encontrado</h5>
-      <hr />
-    </ng-template>
+  <ng-template #errorHandle>
+    <h1 class="secao-danger">Pedido não encontrado</h1>
+  </ng-template>
 
-    <div class="form-row">
-
-      <div class="form-group col-md-2">
-
-        <input type="number" class="form-control" formControlName="numeroDoPedido">
-        <small *ngIf="form.get('numeroDoPedido').valid && form.get('numeroDoPedido').touched"
-          class="form-text text-success">Ok</small>
-        <small *ngIf="form.get('numeroDoPedido').invalid && form.get('numeroDoPedido').touched"
-          class="form-text text-danger">Número do pedido Invalido</small>
-
-      </div>
-
-    </div>
-
-    <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0"
-      *ngFor="let item of order.itens">
-
-      <div class="form-group col-sm-1" *ngIf="controle">
-        <img [src]="item.img.url" class="img-fluid">
-      </div>
-
-      <div class="form-group col-sm-6 " *ngIf="controle">
-        {{ item.titulo }}
-        <br />
-        {{ item.descricao_oferta }}
-      </div>
-
-      <div class="row" >
-        <div class="col">
-          <br />
-          Quantidade: {{ item.quantidade }}
-        </div>
-      </div>
-
-      <div class="form-group col-sm-3 d-flex justify-content-end" *ngIf="controle">
-        <br />
-        {{ item.quantidade * item.valor | currency: 'BRL'}}
-      </div>
-
-    </div>
-
-    <div class="form-group col d-flex justify-content-end" *ngIf="controleValor">
-      <h4> {{ totalValueOrder() | currency:'BRL':true }}</h4>
-    </div>
-
-    <div class="form-row">
-
-      <div class="form-group col-sm-2">
-        <button type="submit" class="btn btn-primary btn-xs">
-          Consultar
-        </button>
-      </div>
-
-    </div>
-
-    <br />
-
-    <h5>Dados de entrega</h5>
-    <hr />
-
-    <div class="form-row">
-
-      <div class="form-group col-md-2">
-        <input type="text" class="form-control" placeholder="Endereço" autocomplete="off" formControlName="endereco">
-        <small *ngIf="form.get('endereco').valid && form.get('endereco').touched"
-          class="form-text text-success">Ok</small>
-        <small *ngIf="form.get('endereco').invalid && form.get('endereco').touched" class="form-text text-danger">Número
-          Inválido</small>
-      </div>
-
-      <div class="form-group col-md-2">
-        <input type="number" class="form-control" placeholder="Número" autocomplete="off" formControlName="numero">
-        <small *ngIf="form.get('numero').valid && form.get('numero').touched" class="form-text text-success">Ok</small>
-        <small *ngIf="form.get('numero').invalid && form.get('numero').touched" class="form-text text-danger">Número
-          Inválido</small>
-      </div>
-
-      <div class="form-group col-md-4">
-        <input type="text" class="form-control" placeholder="Complemento" autocomplete="off"
-          formControlName="complemento">
-      </div>
-
-    </div>
-
-    <h5>Dados de pagamento</h5>
-    <hr />
-
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <select class="form-control" formControlName="formaDePagamento">
-          <option [ngValue]="undefined">Selecione uma opção</option>
-          <option value="dinheiro">Dinheiro</option>
-          <option value="debito">Débito</option>
-        </select>
-        <small *ngIf="form.get('formaDePagamento').valid && form.get('formaDePagamento').touched"
-          class="form-text text-success">Ok</small>
-        <small *ngIf="form.get('formaDePagamento').invalid && form.get('formaDePagamento').touched"
-          class="form-text text-danger">Selecione a Forma de Pagamento</small>
-      </div>
-    </div>
-
-  </form>
-
-  <div class="row">
-    <div class="col-sm-1">
-      <button (click)="alterOrder()" class="btn btn-primary btn-xs">
-        Alterar
-      </button>
-    </div>
+  <div class="flex-search">
+    <mat-form-field class="input-width">
+      <input type="number" matInput placeholder="Digite o Numero do Pedido" [formControl]="numPedido">
+    </mat-form-field>
+    <button mat-button type="submit" (click)=efetuaConsulta() color="primary">Consultar</button>
   </div>
 
+  <div class="flex-form">
+
+    <form [formGroup]="form" novalidate>
+
+
+      <h2>Dados de Entrega</h2>
+
+      <mat-form-field class="example-full-width">
+        <input type="text" formControlName="endereco" matInput placeholder="Endereço">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input type="number" formControlName="numero" matInput placeholder="Número">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input type="text" formControlName="complemento" matInput placeholder="Complemento">
+      </mat-form-field>
+
+      <h2>Dados de Pagamento</h2>
+
+      <mat-form-field class="example-full-width">
+        <input type="text" formControlName="formaDePagamento" matInput placeholder="Forma de Pagamento">
+      </mat-form-field>
+
+      <button class="teste" *ngIf="controle" mat-button  (click)="alterOrder()" color="primary">Alterar</button>
+    </form>
+
+    <div *ngIf="order !== undefined">
+      <div class="flex-item-card" *ngFor="let item of order.itens">
+        <mat-card class="material-card">
+          <mat-card-header>
+
+            <mat-card-title class="card-title"> {{ item.titulo }}</mat-card-title>
+
+          </mat-card-header>
+
+          <img mat-card-image [src]="item.img.url">
+          <mat-card-content class="card-description">
+            <p>{{ item.descricao_oferta }}</p>
+            <p>Quantidade: {{ item.quantidade }}</p>
+            <p>{{ item.quantidade * item.valor | currency: 'BRL' }}</p>
+            <p>{{ totalValueOrder() | currency:'BRL':true}}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+
+  </div>
 </div>
