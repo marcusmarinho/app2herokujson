@@ -1,17 +1,16 @@
 @import '../../../shared//utils/color';
 
-
-h1, h2 {
-  text-align: center;
-}
-
-h2 {
-  margin: 10px;
-}
-
 .secao {
-  width: 100%;
   text-align: center;
+  background: $toolbar;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.form-title {
+  margin-bottom: 10px;
 }
 
 .secao-danger {
@@ -29,6 +28,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 10px;
 }
 
 .flex-form {
@@ -39,19 +39,20 @@ h2 {
 
   form {
     width: 430px;
-    height: 300px;
-    padding: 16px;
+    height: 330px;
+    padding: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+    background: $cardBackground;
   }
 
   .flex-item-card {
-    margin-left: 10px;
 
     .material-card {
-      width: 430px;
+      width: 400px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       background: $cardBackground;
+      
     }
   }
 }
@@ -72,9 +73,7 @@ mat-expansion-panel:hover {
  
     .flex-item-card {
       .material-card {
-        width: inherit;
-        margin-right: 8px;
-        margin-top: 10px;
+        width: 350px;
       }
     }
 
@@ -95,9 +94,7 @@ mat-expansion-panel:hover {
 
     .flex-item-card {
       .material-card {
-        width: inherit;
-        margin-right: 8px;
-        margin-top: 10px;
+        width: 200px;
       }
     }
 

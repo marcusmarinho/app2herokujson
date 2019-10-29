@@ -42,6 +42,7 @@ export class SearchOrderComponent implements OnInit {
           this.eraseForm();
           this.controle = false;
           this.controleValor = false;
+          return;
         }
         this.order = res;
         this.controle = true;
@@ -57,7 +58,7 @@ export class SearchOrderComponent implements OnInit {
   }
 
   public totalPedido(): number {
-    // let [...itensPedido] = this.order.itens
+
     let resultado: 0;
 
     this.order.itens.forEach(val => {

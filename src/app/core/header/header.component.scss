@@ -1,10 +1,20 @@
+@import '../../shared/utils/color';
+
 .navbar {
     padding: 30px;
     text-align: center;
+    background: $navBackground;
     button {
-        font-size: 1em;
+        font-size: 1.5em;
+        margin: 5px;
+        background: $btnColor;
     }
+    button:hover {
+        background: $btnHover;
+    }
+   
 }
+
 
 .navmobol {
     display: none;

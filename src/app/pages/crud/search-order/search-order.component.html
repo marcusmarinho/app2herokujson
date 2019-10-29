@@ -1,6 +1,6 @@
 <div class="container">
 
-  <ng-template [ngIf]="order !== undefined" [ngIfElse]="errorHandle">
+  <ng-template [ngIf]="controle" [ngIfElse]="errorHandle">
     <h1 class="secao">Consultar Pedido</h1>
   </ng-template>
 
@@ -20,10 +20,10 @@
     <form [formGroup]="consultaFormulario" novalidate>
 
   
-        <h2>Dados de Entrega</h2>
+        <h2 class="form-title">Dados de Entrega</h2>
 
         <mat-form-field class="example-full-width">
-          <input type="text" formControlName="endereco" matInput placeholder="Endereço">
+          <input type="text"  formControlName="endereco" matInput placeholder="Endereço">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
@@ -34,7 +34,7 @@
           <input type="text" formControlName="complemento" matInput placeholder="Complemento">
         </mat-form-field>
 
-        <h2>Dados de Pagamento</h2>
+        <h2 class="form-title">Dados de Pagamento</h2>
 
         <mat-form-field class="example-full-width">
           <input type="text" formControlName="formaDePagamento" matInput placeholder="Forma de Pagamento">
@@ -54,11 +54,11 @@
  
         <div class="flex-item-card" >
           <mat-card class="material-card">
+            
             <mat-card-header>
-  
               <mat-card-title class="card-title"> {{ item.titulo }}</mat-card-title>
-  
             </mat-card-header>
+
             <img mat-card-image [src]="item.img.url" alt="Imagem Oferta">
             <mat-card-content class="card-description">
               <p>{{ item.descricao_oferta }}</p>

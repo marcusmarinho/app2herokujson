@@ -1,8 +1,12 @@
 @import '../../../shared/utils/color';
 
 .secao {
-    width: 100%;
-    text-align: center;
+  text-align: center;
+  background: $toolbar;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
 .flex-container {
@@ -13,8 +17,7 @@
         margin: 10px;
         .material-card {
             background: $cardBackground;
-            max-width: 400px;
-            max-height: 450px;
+            width: 400px;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             transition: 0.3s;
 
@@ -44,7 +47,6 @@
       .card {
         .material-card {
           width: 300px;
-          height: 400px;
         }
       }
     }

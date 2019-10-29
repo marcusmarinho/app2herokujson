@@ -1,23 +1,21 @@
 
 <nav class="navbar">
 
-    <button mat-button routerLinkActive="active" routerLink="">Home</button>
+    <button mat-raised-button routerLinkActive="active" routerLink="">Home</button>
 
-    <button mat-button routerLinkActive="active" routerLink="categoria/restaurantes">Restaurantes</button>
+    <button mat-raised-button routerLinkActive="active" routerLink="categoria/restaurantes">Restaurantes</button>
 
-    <button mat-button routerLinkActive="active" routerLink="categoria/diversao">Diversão</button>
+    <button mat-raised-button routerLinkActive="active" routerLink="categoria/diversao">Diversão</button>
    
-    <button mat-button routerLinkActive="active" routerLink="crud/consulta-pedido">Consultar Pedido</button>
+    <button mat-raised-button routerLinkActive="active" routerLink="crud/consulta-pedido">Consultar Pedido</button>
  
-    <button mat-button routerLinkActive="active" routerLink="crud/altera-pedido">Alterar Pedido</button>
+    <button mat-raised-button routerLinkActive="active" routerLink="crud/altera-pedido">Alterar Pedido</button>
 
-    <button mat-button routerLinkActive="active" routerLink="crud/deleta-pedido">Excluir Pedido</button>
+    <button mat-raised-button routerLinkActive="active" routerLink="crud/deleta-pedido">Excluir Pedido</button>
 
-    <button mat-button routerLinkActive="active" routerLink="order-purchase/ordem-compra">
+    <button mat-raised-button routerLinkActive="active" routerLink="order-purchase/ordem-compra">
       <span class="badge badge-info">{{this.cartService.getCartQt()}}</span> <mat-icon>add_shopping_cart</mat-icon></button>
    
-
-
 </nav>
 
 
