@@ -1,88 +1,118 @@
-h1, h2 {
-    text-align: center;
+@import "../../../shared/utils/color";
+
+.secao {
+  text-align: center;
+  background: $toolbar;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.secao-danger {
+  width: 100%;
+  text-align: center;
+  color: red;
+}
+
+.input-width {
+  text-align: center;
+  width: 200px;
+}
+
+.flex-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+}
+
+.flex-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  form {
+    width: 430px;
+    height: 330px;
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    background: $cardBackground;
+  }
+
+  .form-title {
+    margin-bottom: 10px;
   }
   
-  h2 {
-    margin: 10px;
-  }
-  
-  .secao {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .secao-danger {
-    width: 100%;
-    text-align: center;
-    color: red;
-  }
-  
-  .input-width {
-    text-align: center;
-    width: 200px;
-  }
-  
-  .flex-search {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .flex-form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  
-    form {
-      width: 430px;
-      height: 350px;
-      padding: 16px;
+
+  .flex-item-card {
+
+    .material-card {
+      width: 400px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      border-radius: 4px;
-
-      .teste {
-          width: 100%;
-      }
-
+      background: $cardBackground;
+      
     }
-  
+  }
+}
+
+mat-expansion-panel {
+  margin-bottom: 10px;
+  margin-left: 20px;
+  background: $panelBackground;
+}
+
+mat-expansion-panel:hover {
+  background: $panelHover;
+}
+
+@media screen and (max-width: 973px) {
+  .flex-form {
+ 
     .flex-item-card {
-      margin-left: 10px;
-  
       .material-card {
-        width:430px;
+        width: 350px;
+      }
+    }
 
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      }
+    mat-expansion-panel {
+      width: 490px;
+      margin-left: 1px;
+      margin-top: 10px;
     }
   }
-  
-  @media screen and (max-width: 973px) {
-    .flex-form {
-  
-      .flex-item-card {
-        .material-card {
-          margin-right: 8px;
-          margin-top: 10px;
-        }
+}
+
+@media screen and (max-width: 500px) {
+  .flex-form {
+    form {
+      width: 300px;
+      height: 400px;
+    }
+
+    .flex-item-card {
+      .material-card {
+        width: 200px;
       }
     }
-  }
-  
-  @media screen and (max-width: 500px) {
-    .flex-form {
-      form {
-        width: 300px;
-        height: 450px;
-      }
-  
-      .flex-item-card {
-        .material-card {
-          width: 300px;
-          margin-right: 8px;
-          margin-top: 10px;
-        }
-      }
+
+    mat-expansion-panel {
+      width: 360px;
+      margin-left: 1px;
+      margin-top: 10px;
     }
   }
+}
+
+@media screen and (max-width: 400px) {
+  .flex-form {
   
+    mat-expansion-panel {
+      width: 335px;
+      margin-left: 1px;
+      margin-top: 10px;
+    }
+  }
+}
+

@@ -85,7 +85,7 @@ mat-expansion-panel:hover {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .flex-form {
     form {
       width: 300px;
@@ -98,6 +98,17 @@ mat-expansion-panel:hover {
       }
     }
 
+    mat-expansion-panel {
+      width: 360px;
+      margin-left: 1px;
+      margin-top: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .flex-form {
+  
     mat-expansion-panel {
       width: 335px;
       margin-left: 1px;
