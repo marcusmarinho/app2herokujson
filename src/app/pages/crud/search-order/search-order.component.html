@@ -1,11 +1,15 @@
 <div class="container">
 
   <ng-template [ngIf]="controle" [ngIfElse]="errorHandle">
-    <h1 class="secao">Consultar Pedido</h1>
+    <div class="flex-titles">
+      <h1 class="secao">Consultar Pedido</h1>
+    </div>
   </ng-template>
 
   <ng-template #errorHandle>
-    <h1 class="secao-danger">Pedido não encontrado</h1>
+    <div class="flex-titles">
+      <h1 class="secao-danger">Pedido não encontrado</h1>
+    </div>
   </ng-template>
 
   <div class="flex-search">

@@ -28,7 +28,7 @@ export class ChangeOrderComponent implements OnInit {
 
 
   ngOnInit() {
-    this.controle = false;
+    this.controle = true;
     this.order = new Order();
   }
 
@@ -39,12 +39,12 @@ export class ChangeOrderComponent implements OnInit {
 
         if (!res) {
           this.controle = false;
-        
           this.LockFields();
+          return;
         }
         this.order = res;
         this.controle = true;
-     
+
         this.form.patchValue({
           endereco: this.order.endereco,
           complemento: this.order.complemento,

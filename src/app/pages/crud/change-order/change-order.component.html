@@ -1,11 +1,15 @@
 <div class="container">
 
-  <ng-template [ngIf]="order !== undefined" [ngIfElse]="errorHandle">
-    <h1 class="secao">Alterar Pedido</h1>
+  <ng-template [ngIf]="controle" [ngIfElse]="errorHandle">
+    <div class="flex-titles">
+      <h1 class="secao">Alterar Pedido</h1>
+    </div>
   </ng-template>
 
   <ng-template #errorHandle>
-    <h1 class="secao-danger">Pedido não encontrado</h1>
+    <div class="flex-titles">
+      <h1 class="secao-danger">Pedido não encontrado</h1>
+    </div>
   </ng-template>
 
   <div class="flex-search">
@@ -40,40 +44,37 @@
         <input type="text" formControlName="formaDePagamento" matInput placeholder="Forma de Pagamento">
       </mat-form-field>
 
-      <button class="teste" *ngIf="controle" mat-button  (click)="alterOrder()" color="primary">Alterar</button>
+      <button class="teste" *ngIf="controle" mat-button (click)="alterOrder()" color="primary">Alterar</button>
     </form>
 
     <div class="expansion" *ngIf="order !== undefined">
       <mat-expansion-panel *ngFor="let item of order.itens">
         <mat-expansion-panel-header>
           <mat-panel-title>
-          {{item.titulo}}
+            {{item.titulo}}
           </mat-panel-title>
-     
-        </mat-expansion-panel-header>
-   
-          <div class="flex-item-card" >
-            <mat-card class="material-card">
-              
-              <mat-card-header>
-                <mat-card-title class="card-title"> {{ item.titulo }}</mat-card-title>
-              </mat-card-header>
-  
-              <img mat-card-image [src]="item.img.url" alt="Imagem Oferta">
-              <mat-card-content class="card-description">
-                <p>{{ item.descricao_oferta }}</p>
-                <p>Quantidade: {{ item.quantidade }}</p>
-                <p>{{ item.quantidade * item.valor | currency: 'BRL' }}</p>
-                <p>{{ totalValueOrder() | currency:'BRL':true}}</p>
-              </mat-card-content>
-            </mat-card>
-          </div>
-      
-      
-        </mat-expansion-panel>
-      </div>
-   
 
+        </mat-expansion-panel-header>
+
+        <div class="flex-item-card">
+          <mat-card class="material-card">
+
+            <mat-card-header>
+              <mat-card-title class="card-title"> {{ item.titulo }}</mat-card-title>
+            </mat-card-header>
+
+            <img mat-card-image [src]="item.img.url" alt="Imagem Oferta">
+            <mat-card-content class="card-description">
+              <p>{{ item.descricao_oferta }}</p>
+              <p>Quantidade: {{ item.quantidade }}</p>
+              <p>{{ item.quantidade * item.valor | currency: 'BRL' }}</p>
+              <p>{{ totalValueOrder() | currency:'BRL':true}}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+      </mat-expansion-panel>
+    </div>
 
   </div>
 </div>

@@ -1,18 +1,22 @@
 // Background Toolbarh1h2
-$bodyBackground: #5B7A97;
-$toolbar: #97CAEF;
+$bodyBackground: linear-gradient(to right, #f1f1f1, #C0C0C0);
+$toolbar: whitesmoke;
+$txttoolbarcolor: #000000;
+$gradient: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(146,178,185,1) 50%, rgba(142,155,168,1) 93%);
 
 // Menu Background
-$navBackground: #60B683;
+$navBackground: linear-gradient(to right, #396afc, #2948ff);
 
 // Cards
-$cardBackground: #60B683;
-$cardHover: #B7EB21;
+$cardBackgroundGrad: #ffff;
+$cardBackground: #ffff;
+$cardHover :#f5af19;
+$txtcardHover: #ffff;
 
 // ExpansionPanel
-$panelBackground: #60B683;
-$panelHover: #B7EB21;
+$panelBackground: none;
+$panelHover: none;
 
 // buttons
-$btnColor:#60B683;
-$btnHover: #B7EB21;
+$btnColor: #f5af19;
+$btnHover: linear-gradient(to right, #8360c3, #2ebf91);;

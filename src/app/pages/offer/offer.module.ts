@@ -7,6 +7,8 @@ import { HowUseComponent } from './how-use/how-use.component';
 
 import { OfferRoutingModule } from './offer.routing.module';
 
+import {MatCardModule} from '@angular/material/card';
+
 @NgModule({
   declarations: [
     OfferComponent,
@@ -15,7 +17,8 @@ import { OfferRoutingModule } from './offer.routing.module';
   ],
   imports: [
     CommonModule,
-    OfferRoutingModule
+    OfferRoutingModule,
+    MatCardModule
   ],
   exports: [
     OfferComponent,

@@ -8,9 +8,11 @@
         font-size: 1.5em;
         margin: 5px;
         background: $btnColor;
+        color: white;
     }
     button:hover {
-        background: $btnHover;
+  
+       
     }
    
 }
@@ -23,7 +25,7 @@
 @media screen and (max-width: 616px) {
 
     .mat-menu-item {
-        background: #FEF9C7 !important;
+        background: none;
     }
 
     .navbar {

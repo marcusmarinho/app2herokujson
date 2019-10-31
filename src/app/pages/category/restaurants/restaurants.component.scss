@@ -1,12 +1,19 @@
 @import '../../../shared/utils/color';
 
-.secao {
-  text-align: center;
-  background: $toolbar;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 20px;
+.flex-titles{
+  display: flex;
+  justify-content: center;
+
+  .secao {
+    width: fit-content;
+    text-align: center;
+    background: $toolbar;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: $txttoolbarcolor;
+  }
 }
 
 .flex-container {
@@ -33,6 +40,7 @@
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
             transform: translateY(4px);
             background: $cardHover;
+            color: $txtcardHover;
         } 
     }
 }
