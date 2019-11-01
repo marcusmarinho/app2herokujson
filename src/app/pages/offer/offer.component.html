@@ -4,44 +4,40 @@
     <h1 class="secao">{{ offer.descricao_oferta }}</h1>
   </div>
 
+  <aside class="mini-cards">
+    <mat-card *ngFor="let imagem of offer.imagens" class="card-m"><img [src]="imagem.url"></mat-card>
+  </aside>
+
   <div class="card-principal">
-
-    <mat-card><img mat-card-image [src]="offer.imagens[0].url" alt="Imagem Oferta"></mat-card>
-
+    <mat-card class="card-p"><img mat-card-image [src]="offer.imagens[0].url" alt="Imagem Oferta"></mat-card>
   </div>
 
-  <div class="mini-cards" *ngFor="let imagem of offer.imagens">
-      <mat-card><img  [src]="imagem.url"></mat-card>
-  </div>
-
-
-  <div class="col text-center">
+  <aside class="box-info">
     <p>Por apenas:</p>
-  </div>
 
-  <div class="col text-center">
     <h1>{{ offer.valor | currency:'BRL':true }}</h1>
-  </div>
 
-  <div class="col text-center">
     <button type="button" class="btn btn-warning btn-lg" (click)="adicionarItemCarrinho()">
-      Adicionar ao carrinho</button>
-  </div>
+      Adicionar ao carrinho
+    </button>
+
+    <ul>
+      <li>
+        <a routerLink="como-usar">Como
+          Usar</a>
+      </li>
+      <li>
+        <a routerLink="onde-fica">Onde Fica</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+      <!--Routed Views go here-->
+      <router-outlet></router-outlet>
+    </div>
+
+  </aside>
 
 
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" role="tab" aria-expanded="true" routerLink="como-usar">Como
-        Usar</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" role="tab" routerLink="onde-fica">Onde Fica</a>
-    </li>
-  </ul>
-
-  <div class="tab-content" id="myTabContent">
-    <!--Routed Views go here-->
-    <router-outlet></router-outlet>
-  </div>
 
 </div>

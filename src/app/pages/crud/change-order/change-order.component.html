@@ -44,7 +44,7 @@
         <input type="text" formControlName="formaDePagamento" matInput placeholder="Forma de Pagamento">
       </mat-form-field>
 
-      <button class="teste" *ngIf="controle" mat-button (click)="alterOrder()" color="primary">Alterar</button>
+      <button class="teste" *ngIf="controle" [disabled]="!form.valid" mat-button (click)="alterOrder()" color="primary">Alterar</button>
     </form>
 
     <div class="expansion" *ngIf="order !== undefined">
