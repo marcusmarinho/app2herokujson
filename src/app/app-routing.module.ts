@@ -22,6 +22,9 @@ export const ROUTES: Routes = [
     },
     {
         path: 'order-purchase', loadChildren: './pages/order-purchase/order-purchase.module#OrderPurchaseModule'
+    },
+    {
+        path: 'pesquisa', loadChildren: './pages/search-order/search-order.module#SearchOrderModule'
     }
 
  ];
