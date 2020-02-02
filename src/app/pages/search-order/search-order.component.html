@@ -1,0 +1,13 @@
+<p style="color: black;">search-order works!</p>
+<div class="col-md-6">
+
+    <input type="text" class="form-control" placeholder="Pesquise por Ofertas.." #termoDaPesquisa (keyup)="pesquisa(termoDaPesquisa.value)" />
+    <ul class="list-group">
+
+      <li class="list-group-item" *ngFor="let oferta of ofertas$ | async">
+        <a [routerLink]="['/offer/oferta', oferta.id]" (click)="eraseSearch()">
+          {{ oferta.titulo }}
+        </a>
+      </li>
+    </ul>
+  </div>
