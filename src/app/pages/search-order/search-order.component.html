@@ -1,7 +1,7 @@
 <p style="color: black;">search-order works!</p>
 <div class="col-md-6">
 
-    <input type="text" class="form-control" placeholder="Pesquise por Ofertas.." #termoDaPesquisa (keyup)="pesquisa(termoDaPesquisa.value)" />
+    <input type="text" class="form-control" placeholder="Pesquise por Ofertas.." #searchTerm (keyup)="search(searchTerm.value)" />
     <ul class="list-group">
 
       <li class="list-group-item" *ngFor="let oferta of ofertas$ | async">

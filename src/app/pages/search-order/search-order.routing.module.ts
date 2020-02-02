@@ -7,7 +7,7 @@ export const searchOrderRoutes: Routes = [
     {
         path: '',
         children: [
-            { path: 'pesquisa', component: SearchOrderComponent }
+            { path: 'pesquisa-pedido', component: SearchOrderComponent }
         ]
     }
  ];

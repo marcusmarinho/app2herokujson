@@ -29,7 +29,7 @@ export class SearchOrderComponent implements OnInit {
     );
   }
 
-  public pesquisa(searchTerm: string): void {
+  public search(searchTerm: string): void {
     this.subjectPesquisa.next(searchTerm);
   }
 
