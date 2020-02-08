@@ -1,4 +1,4 @@
-<div class="flex-container" *ngIf="offer !== undefined">
+<div class="flex-container" *ngIf="offer$ | async as offer; else loading">
 
   <div class="flex-titles">
     <h1 class="secao">{{ offer.descricao_oferta }}</h1>
@@ -32,12 +32,9 @@
     </ul>
 
     <div class="tab-content" id="myTabContent">
-      <!--Routed Views go here-->
       <router-outlet></router-outlet>
     </div>
 
   </aside>
-
-
 
 </div>

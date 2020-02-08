@@ -17,6 +17,7 @@ class CartService {
     }
 
     public incluirItem(offer: Offer): void {
+        console.log('incluir item');
         const itemCarrinho: ItemCart = new ItemCart(
             offer.id,
             offer.imagens[0],
