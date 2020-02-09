@@ -8,11 +8,7 @@ import { DeleteOrderComponent } from './delete-order/delete-order.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CrudRoutingModule } from './crud.routing.module';
 import { CrudService } from '../../shared/services/crud.service';
-
-import { MatInputModule } from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MaterialModule } from 'src/app/shared/modules/material.module';
 
 @NgModule({
   declarations: [
@@ -24,12 +20,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CommonModule,
     CrudRoutingModule,
     ReactiveFormsModule,
-    MatInputModule,
-    MatCardModule,
-    MatButtonModule,
     FormsModule,
-    MatExpansionModule
-
+    MaterialModule,
   ],
   exports: [
     ChangeOrderComponent,

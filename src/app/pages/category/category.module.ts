@@ -3,10 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FunComponent } from './fun/fun.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { CategoryRoutingModule } from './category.routing.module';
-
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-
+import { MaterialModule } from 'src/app/shared/modules/material.module';
 
 @NgModule({
   declarations: [
@@ -16,8 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
   imports: [
     CommonModule,
     CategoryRoutingModule,
-    MatCardModule,
-    MatButtonModule
+    MaterialModule
   ],
   exports: [
     FunComponent,

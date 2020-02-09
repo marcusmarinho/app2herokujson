@@ -6,8 +6,7 @@ import { WhereIsComponent} from './where-is/where-is.component';
 import { HowUseComponent } from './how-use/how-use.component';
 
 import { OfferRoutingModule } from './offer.routing.module';
-
-import {MatCardModule} from '@angular/material/card';
+import { MaterialModule } from 'src/app/shared/modules/material.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,7 @@ import {MatCardModule} from '@angular/material/card';
   imports: [
     CommonModule,
     OfferRoutingModule,
-    MatCardModule
+    MaterialModule
   ],
   exports: [
     OfferComponent,
