@@ -45,11 +45,7 @@ import { SpinnerModule } from './shared/components/spinner.module';
     SpinnerModule
   ],
   providers: [
-    {
-    provide: HTTP_INTERCEPTORS,
-    useClass: SpinnerInterceptorService,
-    multi: true
-  },
+
   { provide: LOCALE_ID, useValue: 'pt' },
     CartService, OfferService, OrderPurchaseService, SearchService, CrudService, SpinnerInterceptorService
   ],
