@@ -5,12 +5,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { OrderPurchaseRoutingModule } from './order-purchase.routing.module';
 
 import { OrderPurchaseComponent } from '../order-purchase/order-purchase.component';
+import { MaterialModule } from 'src/app/shared/modules/material.module';
 
 @NgModule({
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        OrderPurchaseRoutingModule
+        OrderPurchaseRoutingModule,
+        MaterialModule,
     ],
     exports: [
         OrderPurchaseComponent,

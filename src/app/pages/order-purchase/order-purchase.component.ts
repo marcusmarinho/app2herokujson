@@ -70,7 +70,6 @@ export class OrderPurchaseComponent implements OnInit {
   }
 
   public alterar(item: ItemCart, alteraQuantidade): void {
-    console.log('altera quantidade')
     this.cartService.alteraQuantidade(item, alteraQuantidade);
   }
 }
