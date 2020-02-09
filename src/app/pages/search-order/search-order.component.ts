@@ -3,6 +3,8 @@ import { SearchService } from 'src/app/shared/services/search.service';
 import { Offer } from 'src/app/shared/models/offer.model';
 import { Observable, Subject, of } from 'rxjs';
 import { debounceTime, switchMap, distinctUntilChanged } from 'rxjs/operators';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-search-order',
@@ -13,6 +15,9 @@ export class SearchOrderComponent implements OnInit {
 
   public ofertas$: Observable<Offer[]>;
   private subjectPesquisa: Subject<string> = new Subject<string>();
+
+  color: ThemePalette = 'primary';
+  mode: ProgressSpinnerMode = 'indeterminate';
 
   constructor(private searchService: SearchService) { }
 
