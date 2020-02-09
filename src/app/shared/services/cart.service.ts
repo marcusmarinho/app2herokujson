@@ -1,10 +1,8 @@
 import { ItemCart } from '../../shared/models/item-cart.model';
 import { Offer } from '../../shared/models/offer.model';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 
 class CartService {
 
@@ -17,7 +15,6 @@ class CartService {
     }
 
     public incluirItem(offer: Offer): void {
-        console.log('incluir item');
         const itemCarrinho: ItemCart = new ItemCart(
             offer.id,
             offer.imagens[0],
@@ -27,13 +24,11 @@ class CartService {
             1
         );
 
-            // Verifica se item add no carrinho é repetido caso sim aumenta somente a quantidade
-         this.itemCarrinhoEncontrado = this.itens.find((item: ItemCart) => item.id === itemCarrinho.id);
+        this.itemCarrinhoEncontrado = this.itens.find((item: ItemCart) => item.id === itemCarrinho.id);
 
         if (this.itemCarrinhoEncontrado) {
             this.itemCarrinhoEncontrado.quantidade += 1;
         } else {
-            // metodo push permite pegar alguma informação e add no array
             this.itens.push(itemCarrinho);
         }
     }
@@ -67,12 +62,7 @@ class CartService {
                     itemCarrinhoEncontrado.quantidade -= 1;
 
                     if (itemCarrinhoEncontrado.quantidade === 0) {
-                        /*splice:Com base em um indice do array o metodo recorta o indice e despreza.
-                        parametros(?'nao sabemos qual indice vai ser', 1 quantidade de recortes)
-                        indexof retorna a chave do array
-                        */
                         this.itens.splice(this.itens.lastIndexOf(itemCarrinhoEncontrado), 1);
-                        // let x = this.itens.splice('abc') recorta o indice abc e entra na variavel x
                     }
                 }
             }
