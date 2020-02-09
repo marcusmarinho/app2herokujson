@@ -1,5 +1,11 @@
 @import '../../shared/utils/color';
 
+button {
+    color: white !important;
+    font-size: 1em;
+    font-weight: 500;
+}
+
 .navbar {
     padding: 30px;
     text-align: center;
@@ -8,13 +14,9 @@
         font-size: 1.5em;
         margin: 5px;
         background: $btnColor;
-        color: white;
+        color: white !important;
     }
-    button:hover {
-  
-       
-    }
-   
+    
 }
 
 .navmobol {
